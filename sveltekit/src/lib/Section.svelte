@@ -1,0 +1,56 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { SECTION_CLASSES } from './classes';
+	import type { ClassValue } from 'clsx';
+	import { cn } from './utils';
+
+	export let id = '';
+	let className: ClassValue = undefined;
+	export { className as class };
+	export let isDark = false;
+	let section: HTMLElement;
+	export let isVisible = false;
+	export let isData = false;
+
+	onMount(() => {
+		let observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+						isVisible = true;
+					}
+					// else if (
+					// 	!entry.isIntersecting ||
+					// 	(entry.isIntersecting && entry.intersectionRatio <= 0.3)
+					// ) {
+					// 	isVisible = false;
+					// }
+				});
+			},
+			{
+				threshold: [0.3, 0.5],
+			}
+		);
+
+		observer.observe(section);
+	});
+</script>
+
+<section
+	bind:this={section}
+	{id}
+	class={cn(
+		'w-full px-6 md:px-10 xl:px-16 2xl:px-24 mb-6 md:mb-10 xl:mb-16 2xl:mb-24',
+		isVisible ? 'opacity-100 animate-fadeIn' : 'opacity-0'
+	)}>
+	<div
+		class={cn(
+			'py-12 md:py-16 xl:py-24 px-16 sm:px-16 md:px-20 lg:px-40 xl:px-64 2xl:px-80',
+			isDark ? 'bg-surface-800 text-white' : 'bg-primary-600 selection:bg-surface-300 text-black',
+			SECTION_CLASSES,
+			isData && 'items-start',
+			className
+		)}>
+		<slot />
+	</div>
+</section>
