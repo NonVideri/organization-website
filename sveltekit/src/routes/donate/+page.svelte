@@ -51,15 +51,15 @@
 	</Paragraph>
 </Section>
 
-<Section isDark>
+<Section>
 	<Header type="h2">1. Bank transfer</Header>
 	<Paragraph isData>Thriving Individuals Foundation</Paragraph>
 	<Paragraph isData
-		>IBAN: <ClipboardButton isDark copy={THRIVING_INDIVIDUALS_IBAN.replace(/\s+/g, '')}
+		>IBAN: <ClipboardButton copy={THRIVING_INDIVIDUALS_IBAN.replace(/\s+/g, '')}
 			>{THRIVING_INDIVIDUALS_IBAN}</ClipboardButton
 		></Paragraph>
 	<Paragraph isData
-		>SWIFT/BIC: <ClipboardButton isDark copy="NESBPLPW">NESBPLPW</ClipboardButton> (Nest Bank)</Paragraph>
+		>SWIFT/BIC: <ClipboardButton copy="NESBPLPW">NESBPLPW</ClipboardButton> (Nest Bank)</Paragraph>
 </Section>
 
 {#if PUBLIC_PAYPAL_ADDRESS}
@@ -73,7 +73,7 @@
 {/if}
 
 {#if CRYPTO_WALLETS.some(({ address }) => address)}
-	<Section isDark>
+	<Section>
 		<Header type="h2">3. Cryptocurrency</Header>
 
 		{#each CRYPTO_WALLETS as { name, address, logo }}

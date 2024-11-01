@@ -14,6 +14,6 @@
 
 <div class={cn(SECTION_CLASSES, 'my-8')}>
 	<Header type="h4">{name}</Header>
-	<Paragraph><ClipboardButton isDark copy={address}>{address}</ClipboardButton></Paragraph>
+	<Paragraph><ClipboardButton copy={address}>{address}</ClipboardButton></Paragraph>
 	<div use:qrcode={{ data: address, image: logo }} />
 </div>

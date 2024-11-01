@@ -7,7 +7,6 @@
 	export let id = '';
 	let className: ClassValue = undefined;
 	export { className as class };
-	export let isDark = false;
 	let section: HTMLElement;
 	export let isVisible = false;
 	export let isData = false;
@@ -45,8 +44,7 @@
 	)}>
 	<div
 		class={cn(
-			'py-12 md:py-16 xl:py-24 px-16 sm:px-16 md:px-20 lg:px-40 xl:px-64 2xl:px-80',
-			isDark ? 'bg-surface-800 text-white' : 'bg-primary-600 selection:bg-surface-300 text-black',
+			'py-12 md:py-16 xl:py-24 px-16 sm:px-16 md:px-20 lg:px-40 xl:px-64 2xl:px-80 bg-primary-800 selection:bg-secondary-500 selection:text-black',
 			SECTION_CLASSES,
 			isData && 'items-start',
 			className

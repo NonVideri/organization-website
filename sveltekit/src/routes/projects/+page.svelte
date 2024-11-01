@@ -20,12 +20,12 @@
 		backgrounds.</Paragraph>
 </Section>
 
-<Section isDark isVisible>
+<Section isVisible>
 	<Header>Current projects</Header>
 	<List>
 		{#each PROJECTS as { href, text }}
 			<ListItem>
-				<Link isDark {href}>{text}</Link>
+				<Link {href}>{text}</Link>
 			</ListItem>
 		{/each}
 	</List>

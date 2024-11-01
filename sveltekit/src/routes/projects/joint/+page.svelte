@@ -19,7 +19,7 @@
 	</Paragraph> -->
 </Section>
 
-<Section isDark>
+<Section>
 	<Header>Cycle Freedom</Header>
 	<Paragraph>
 		Cycle is a yearly entrepreneurship camp in Lithuania. It is extremely practical and
@@ -42,7 +42,7 @@
 		year to help them accelerate their wealth creation journeys.
 	</Paragraph>
 	<Paragraph>
-		To learn more about Cycle Freedom, <Link isDark target="_blank" href="https://cyclefreedom.lt"
+		To learn more about Cycle Freedom, <Link target="_blank" href="https://cyclefreedom.lt"
 			>click here</Link
 		>.
 	</Paragraph>
@@ -69,4 +69,4 @@
 	<Image src="/projects/rob-duffy.png" alt="Rob Duffy" />
 </Section>
 
-<SupportUsSection isDark />
+<SupportUsSection />

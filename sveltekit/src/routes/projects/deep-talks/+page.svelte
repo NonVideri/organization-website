@@ -32,4 +32,4 @@
 	<Image src="/projects/deep-talks.png" alt="Deep Talks" />
 </Section>
 
-<SupportUsSection isDark />
+<SupportUsSection />

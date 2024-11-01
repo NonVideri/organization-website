@@ -7,7 +7,7 @@
 	import { Routes } from '$lib/constants';
 </script>
 
-<Section isDark isVisible>
+<Section isVisible>
 	<Header>Practical Freedom Framework</Header>
 	<Paragraph>
 		This is a range of skills and competences we are teaching and promoting at Thriving Individuals.
@@ -68,6 +68,6 @@
 			},
 		]} />
 	<Paragraph class="mt-4"
-		>If you like what you see, feel free to <Link href={Routes.JOIN} isDark>join our community</Link
+		>If you like what you see, feel free to <Link href={Routes.JOIN}>join our community</Link
 		>.</Paragraph>
 </Section>

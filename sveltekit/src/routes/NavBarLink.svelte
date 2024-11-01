@@ -35,7 +35,7 @@
 
 	<div
 		class={cn(
-			'absolute left-0 w-full bg-surface-800 shadow-lg transition-all duration-300 transform',
+			'absolute left-0 w-full transition-all duration-300 transform',
 			showDropdown ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
 		)}>
 		<slot />

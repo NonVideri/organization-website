@@ -13,12 +13,12 @@ const config = {
 		extend: {
 			keyframes: {
 				bgBreathing: {
-					'0%': { backgroundColor: '#fdd609' },
-					'20%': { backgroundColor: '#9a8302' },
-					'50%': { backgroundColor: '#fdd609' },
-					'80%': { backgroundColor: '#fde76f' },
-					'100%': { backgroundColor: '#fdd609' },
-				},
+          '0%': { backgroundColor: '#121212' },
+          '20%': { backgroundColor: '#242424' },
+          '50%': { backgroundColor: '#121212' },
+          '80%': { backgroundColor: '#212121' },
+          '100%': { backgroundColor: '#121212' },
+        },
 				fadeIn: {
 					'0%': { opacity: '0', transform: 'translateY(3rem)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' },
@@ -56,7 +56,7 @@ const config = {
 				'9xl': '8rem',
 			},
 			colors: {
-				black: '#02022C',
+				black: '#121212',
 			},
 		},
 	},

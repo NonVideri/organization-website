@@ -68,7 +68,7 @@
 	</form>
 </Section>
 
-<Section isDark>
+<Section>
 	<Header>Join our private community</Header>
 	<Paragraph>Interact with ambitious Individuals from all around the world:</Paragraph>
 	<a

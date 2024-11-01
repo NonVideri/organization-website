@@ -28,7 +28,7 @@
 	</Paragraph>
 </Section>
 
-<Section isDark>
+<Section>
 	<Header>Our Vision</Header>
 	<List
 		items={[
@@ -63,7 +63,7 @@
 		]} />
 </Section>
 
-<Section isDark>
+<Section>
 	<Header>Our Values</Header>
 	<List
 		items={[

@@ -54,7 +54,7 @@
 	use:enhance={handleSubmit}>
 	<button
 		type="button"
-		class="absolute top-2 right-5 text-3xl text-black cursor-pointer"
+		class="absolute top-2 right-5 text-3xl cursor-pointer"
 		on:click={handleClose}>
 		&times;
 	</button>

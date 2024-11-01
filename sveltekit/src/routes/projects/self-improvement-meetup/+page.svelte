@@ -27,4 +27,4 @@
 	<Image src="/projects/self-improvement-meetup.png" alt="Self-Improvement Meetup" />
 </Section>
 
-<SupportUsSection isDark />
+<SupportUsSection />

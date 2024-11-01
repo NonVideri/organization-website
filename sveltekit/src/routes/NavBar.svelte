@@ -25,7 +25,7 @@
 </script>
 
 <nav
-	class="z-10 fixed top-0 left-0 right-0 bg-surface-800 flex justify-around transition-transform duration-200 ease-in-out {!showMenu &&
+	class="z-10 fixed top-0 left-0 right-0 bg-primary-800 shadow-2xl flex justify-around transition-transform duration-200 ease-in-out {!showMenu &&
 		'transform -translate-y-full'}">
 	<NavBarLink href={Routes.HOME} text="About us">
 		<NavBarDropdown>

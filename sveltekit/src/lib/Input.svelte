@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { INPUT_CLASSES } from '$lib/classes';
+
 	export let type = 'text';
 	export let name = '';
 	export let placeholder = '';
@@ -9,9 +11,4 @@
 	}
 </script>
 
-<input
-	use:typeAction
-	{name}
-	{placeholder}
-	{required}
-	class="px-6 py-4 text-lg border-none rounded-md outline-none focus:shadow-focus" />
+<input use:typeAction {name} {placeholder} {required} class={INPUT_CLASSES} />

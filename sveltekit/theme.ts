@@ -13,35 +13,35 @@ export const theme: CustomThemeConfig = {
 		"--theme-border-base": "2px",
 		// =~= Theme On-X Colors =~=
 		"--on-primary": "0 0 0",
-		"--on-secondary": "255 255 255",
+		"--on-secondary": "0 0 0",
 		"--on-tertiary": "255 255 255",
 		"--on-success": "255 255 255",
 		"--on-warning": "255 255 255",
 		"--on-error": "255 255 255",
 		"--on-surface": "255 255 255",
 		// =~= Theme Colors  =~=
-		// primary | #fdd609 
-		"--color-primary-50": "255 249 218", // #fff9da
-		"--color-primary-100": "255 247 206", // #fff7ce
-		"--color-primary-200": "255 245 194", // #fff5c2
-		"--color-primary-300": "254 239 157", // #feef9d
-		"--color-primary-400": "254 226 83", // #fee253
-		"--color-primary-500": "253 214 9", // #fdd609
-		"--color-primary-600": "228 193 8", // #e4c108
-		"--color-primary-700": "190 161 7", // #bea107
-		"--color-primary-800": "152 128 5", // #988005
-		"--color-primary-900": "124 105 4", // #7c6904
-		// secondary | #082dfd 
-		"--color-secondary-50": "218 224 255", // #dae0ff
-		"--color-secondary-100": "206 213 255", // #ced5ff
-		"--color-secondary-200": "193 203 255", // #c1cbff
-		"--color-secondary-300": "156 171 254", // #9cabfe
-		"--color-secondary-400": "82 108 254", // #526cfe
-		"--color-secondary-500": "8 45 253", // #082dfd
-		"--color-secondary-600": "7 41 228", // #0729e4
-		"--color-secondary-700": "6 34 190", // #0622be
-		"--color-secondary-800": "5 27 152", // #051b98
-		"--color-secondary-900": "4 22 124", // #04167c
+		// primary | #2b6dbe 
+		"--color-primary-50": "223 233 245", // #dfe9f5
+		"--color-primary-100": "213 226 242", // #d5e2f2
+		"--color-primary-200": "202 219 239", // #cadbef
+		"--color-primary-300": "170 197 229", // #aac5e5
+		"--color-primary-400": "107 153 210", // #6b99d2
+		"--color-primary-500": "43 109 190", // #2b6dbe
+		"--color-primary-600": "39 98 171", // #2762ab
+		"--color-primary-700": "32 82 143", // #20528f
+		"--color-primary-800": "26 65 114", // #1a4172
+		"--color-primary-900": "21 53 93", // #15355d
+		// secondary | #FDA539 
+		"--color-secondary-50": "255 242 225", // #fff2e1
+		"--color-secondary-100": "255 237 215", // #ffedd7
+		"--color-secondary-200": "255 233 206", // #ffe9ce
+		"--color-secondary-300": "254 219 176", // #fedbb0
+		"--color-secondary-400": "254 192 116", // #fec074
+		"--color-secondary-500": "253 165 57", // #FDA539
+		"--color-secondary-600": "228 149 51", // #e49533
+		"--color-secondary-700": "190 124 43", // #be7c2b
+		"--color-secondary-800": "152 99 34", // #986322
+		"--color-secondary-900": "124 81 28", // #7c511c
 		// tertiary | #59357e 
 		"--color-tertiary-50": "230 225 236", // #e6e1ec
 		"--color-tertiary-100": "222 215 229", // #ded7e5

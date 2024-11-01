@@ -11,11 +11,11 @@
 	<Paragraph />
 </Section>
 
-<Section isDark>
+<Section>
 	<Header>Joint projects</Header>
 	<Paragraph>
 		To see our joint projects with other people and organizations,
-		<Link href={Routes.PROJECTS_JOINT} isDark>click here</Link>.
+		<Link href={Routes.PROJECTS_JOINT}>click here</Link>.
 	</Paragraph>
 </Section>
 <!-- 

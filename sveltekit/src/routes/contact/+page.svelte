@@ -86,16 +86,16 @@
 	{/if}
 </Section>
 
-<Section isDark isVisible>
+<Section isVisible>
 	<Header>Contact form</Header>
 	<form
-		class={cn(FORM_CLASSES, 'text-black w-full max-w-md my-6')}
+		class={cn(FORM_CLASSES, 'w-full max-w-md my-6')}
 		method="POST"
 		use:enhance={handleSubmit}>
 		<Input type="email" name="email" placeholder="Email" required />
 		<Input name="subject" placeholder="Subject" required />
 		<TextArea name="message" placeholder="Message" required />
-		<SubmitButton isDark>Send</SubmitButton>
+		<SubmitButton>Send</SubmitButton>
 	</form>
 </Section>
 
