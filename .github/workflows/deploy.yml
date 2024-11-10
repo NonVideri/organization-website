@@ -1,0 +1,49 @@
+name: Deploy Application
+
+on:
+  # push:
+  #   branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Create SSH directory
+        run: mkdir -p ~/.ssh/
+      
+      - name: Install SSH key
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+      
+      - name: Create env files
+        run: |
+          # SvelteKit .env
+          echo "${{ secrets.SVELTEKIT_ENV }}" > ./sveltekit/.env
+          
+          # Pocketbase .env
+          echo "${{ secrets.POCKETBASE_ENV }}" > ./pocketbase/.env
+      
+      - name: Copy files to VPS
+        run: |
+          rsync -avz --delete \
+            --exclude 'pb_data' \
+            --exclude 'node_modules' \
+            --exclude '.git' \
+            ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/app/
+      
+      - name: Deploy on VPS
+        run: |
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} '
+            cd /opt/app && \
+            docker-compose pull && \
+            docker-compose build --no-cache && \
+            docker-compose up -d
+          '
+
+      - name: Cleanup
+        run: rm -rf ~/.ssh

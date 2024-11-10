@@ -1,0 +1,117 @@
+version: '3.8'
+
+services:
+  sveltekit:
+    build:
+      context: ./sveltekit
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - POCKETBASE_URL=http://pocketbase:8090
+    depends_on:
+      - pocketbase
+    networks:
+      - app_network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  pocketbase:
+    build:
+      context: ./pocketbase
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - pb_data:/pb/pb_data
+    networks:
+      - app_network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    volumes:
+      - pb_data:/pb/pb_data:rw
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  flarum:
+    image: mondediefr/flarum:stable
+    restart: unless-stopped
+    environment:
+      - FLARUM_BASE_URL=https://forum.thrivingindividuals.org
+      - DB_HOST=flarum_db
+      - DB_NAME=flarum
+      - DB_USER=flarum
+      - DB_PASS=your_secure_password
+      - FLARUM_ADMIN_USER=admin
+      - FLARUM_ADMIN_PASS=your_admin_password
+      - FLARUM_ADMIN_MAIL=admin@thrivingindividuals.org
+    depends_on:
+      - flarum_db
+    networks:
+      - app_network
+
+  flarum_db:
+    image: mariadb:10.6
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=flarum
+      - MYSQL_USER=flarum
+      - MYSQL_PASSWORD=your_secure_password
+      - MYSQL_ROOT_PASSWORD=your_root_password
+    volumes:
+      - flarum_db_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - sveltekit
+      - pocketbase
+      - flarum
+    networks:
+      - app_network
+
+  # Certbot for SSL
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+
+volumes:
+  pb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /opt/app/pb_data
+      o: bind
+  flarum_db_data:
+
+networks:
+  app_network:
+    driver: bridge
