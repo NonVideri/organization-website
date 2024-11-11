@@ -8,6 +8,8 @@ RUN npm run build
 
 FROM node:18-alpine
 
+RUN apk --no-cache add ca-certificates
+
 WORKDIR /app
 COPY --from=builder /app/build build/
 COPY --from=builder /app/package*.json ./
