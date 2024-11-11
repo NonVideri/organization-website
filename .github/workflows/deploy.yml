@@ -3,7 +3,7 @@ name: Deploy Application
 on:
   # push:
   #   branches: [ master ]
-  workflow_dispatch:
+  # workflow_dispatch:
 
 jobs:
   deploy:
@@ -27,6 +27,10 @@ jobs:
           
           # Pocketbase .env
           echo "${{ secrets.POCKETBASE_ENV }}" > ./pocketbase/.env
+
+          # Flarum .env
+          echo "${{ secrets.FLARUM_ENV }}" > ./flarum/.env
+          echo "${{ secrets.FLARUM_DB_ENV }}" > ./flarum/db.env
       
       - name: Copy files to VPS
         run: |
