@@ -61,7 +61,7 @@ services:
     restart: unless-stopped
     env_file: ./flarum/db.env
     volumes:
-      - flarum_db_data:/var/lib/mysql
+      - /opt/app/flarum_db:/var/lib/mysql
     networks:
       - app_network
 
@@ -69,6 +69,7 @@ services:
   nginx:
     image: nginx:alpine
     restart: unless-stopped
+    env_file: ./nginx/.env
     ports:
       - "80:80"
       - "443:443"
@@ -87,6 +88,7 @@ services:
   # Certbot for SSL
   certbot:
     image: certbot/certbot
+    env_file: ./certbot/.env
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
