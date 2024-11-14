@@ -7,12 +7,12 @@
 	import Paragraph from '$lib/Paragraph.svelte';
 	import Section from '$lib/Section.svelte';
 	import Input from '$lib/Input.svelte';
-	import Link from '$lib/Link.svelte';
 	import { setAlert } from '$lib/alert.store';
 	import { Routes } from '$lib/constants';
 	import { cn } from '$lib/utils';
 	import { FORM_CLASSES } from '$lib/classes';
 	import SubmitButton from '$lib/SubmitButton.svelte';
+	import TermsAndConditionsCheckbox from '$lib/TermsAndConditionsCheckbox.svelte';
 
 	let forumElement: HTMLAnchorElement;
 
@@ -54,15 +54,7 @@
 		use:enhance={handleSubmit}>
 		<Input type="text" name="name" placeholder="Name *" required />
 		<Input type="email" name="email" placeholder="Email *" required />
-
-		<div class="checkbox-container">
-			<Paragraph class="my-0 py-0">
-				<label class="flex items-center">
-					<input type="checkbox" name="accepted" class="w-5 h-5 mr-4" />
-					Accept&nbsp;<Link href={Routes.TERMS_AND_CONDITIONS}>Terms & Conditions</Link>
-				</label>
-			</Paragraph>
-		</div>
+    <TermsAndConditionsCheckbox />
 
 		<SubmitButton>Subscribe</SubmitButton>
 	</form>

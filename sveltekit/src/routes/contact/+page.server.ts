@@ -1,29 +1,27 @@
 import { fail, type Actions, type RequestEvent } from '@sveltejs/kit';
-import mailer from '$lib/server/mailer';
-import { CONTACT_EMAIL_ADDRESS, FROM_EMAIL_ADDRESS } from '$env/static/private';
+import pb from '$lib/pocketbase';
 
 export const actions: Actions = {
 	default: async ({ request }: RequestEvent) => {
 		const data = await request.formData();
-		const email = String(data.get('email'));
+
+    const email = String(data.get('email'));
+    if (!email) return fail(400, { message: 'Email is required' });
+
 		const subject = String(data.get('subject'));
-		const message = String(data.get('message'));
+    if (!subject) return fail(400, { message: 'Subject is required' });
+
+    const message = String(data.get('message'));
+    if (!message) return fail(400, { message: 'Message is required' });
+
+    if (!data.get('accepted'))
+      return fail(400, { message: 'You must accept the terms and conditions' });
 
 		try {
-			await mailer.sendMail({
-				from: FROM_EMAIL_ADDRESS,
-				to: CONTACT_EMAIL_ADDRESS,
-				subject: `CONTACT: ${subject}`,
-				text: `Sender: ${email}
-            Subject: ${subject}
-            Message: ${message}`,
-				html: `<p><b>Sender:</b> ${email}</p>
-            <p><b>Subject:</b> ${subject}</p>
-            <p><b>Message:</b> ${message}</p>`,
-			});
-		} catch (error) {
+      await pb.collection('contacts').create({ email, subject, message });
+    } catch (error: any) {
 			console.error(error);
-			return fail(500, { message: 'Failed to send email.' });
+			return fail(500, { message: error.response.message });
 		}
 
 		return { success: true };

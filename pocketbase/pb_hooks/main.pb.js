@@ -6,6 +6,8 @@ onAfterBootstrap((e) => {
 });
 
 
+// Subscriptions
+
 onRecordBeforeCreateRequest((e) => {
   if (!e.record) throw new Error("Record not found")
   if (e.record.get('confirmed')) throw new Error("Cannot create a confirmed subscription");
@@ -71,3 +73,35 @@ onRecordAfterUpdateRequest((e) => {
     throw new Error("Failed to send confirmation email")
   }
 }, 'subscriptions');
+
+// Contacts
+
+onRecordAfterCreateRequest((e) => {
+  if (!e.record) throw new Error("Record not found")
+  const subject = e.record.get("subject");
+  const email = e.record.get("email");
+  const message = e.record.get("message");
+
+  const emailMessage = new MailerMessage({
+    from: {
+      address: $app.settings().meta.senderAddress,
+      name:    $app.settings().meta.senderName,
+    },
+    to: [{address: process.env.CONTACT_EMAIL}],
+    subject: `CONTACT: ${subject}`,
+    text: `Sender: ${email}
+        Subject: ${subject}
+        Message: ${message}`,
+    html: `<p><b>Sender:</b> ${email}</p>
+        <p><b>Subject:</b> ${subject}</p>
+        <p><b>Message:</b> ${message}</p>`,
+  });
+
+  try {
+    $app.newMailClient().send(emailMessage)
+  } catch (error) {
+    console.error(error);
+    $app.dao().deleteRecord(e.record)
+    throw new Error("Failed to send contact email")
+  }
+});

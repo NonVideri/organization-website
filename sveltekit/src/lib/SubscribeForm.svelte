@@ -8,10 +8,10 @@
 	import { Routes } from '$lib/constants';
 	import Header from '$lib/Header.svelte';
 	import Input from '$lib/Input.svelte';
-	import Link from '$lib/Link.svelte';
 	import Paragraph from '$lib/Paragraph.svelte';
 	import SubmitButton from '$lib/SubmitButton.svelte';
 	import { cn } from '$lib/utils';
+	import TermsAndConditionsCheckbox from '$lib/TermsAndConditionsCheckbox.svelte';
 
 	const modalStore = getModalStore();
 
@@ -61,15 +61,7 @@
 	<Header type="h4" class="self-center">Join our elite mailing list</Header>
 	<Input type="text" name="name" placeholder="Name *" required />
 	<Input type="email" name="email" placeholder="Email *" required />
-
-	<div class="checkbox-container">
-		<Paragraph class="my-0 py-0">
-			<label class="flex items-center">
-				<input type="checkbox" name="accepted" class="w-5 h-5 mr-4" />
-				Accept&nbsp;<Link href={Routes.TERMS_AND_CONDITIONS}>Terms & Conditions</Link>
-			</label>
-		</Paragraph>
-	</div>
+  <TermsAndConditionsCheckbox />
 
 	<SubmitButton>Subscribe</SubmitButton>
 	<Paragraph type="small">

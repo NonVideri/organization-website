@@ -1,7 +1,7 @@
-import { fail } from '@sveltejs/kit';
+import { fail, type Actions } from '@sveltejs/kit';
 import pb from '$lib/pocketbase';
 
-export const actions = {
+export const actions: Actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
 
@@ -15,9 +15,7 @@ export const actions = {
 			return fail(400, { message: 'You must accept the terms and conditions' });
 
 		try {
-			await pb
-				.collection('subscriptions')
-				.create({ name: data.get('name'), email: data.get('email') });
+			await pb.collection('subscriptions').create({ name, email });
 		} catch (error: any) {
 			console.error(error);
 			return fail(500, { message: error.response.message });

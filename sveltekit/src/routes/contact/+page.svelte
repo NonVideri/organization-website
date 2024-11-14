@@ -15,6 +15,7 @@
 	import Paragraph from '$lib/Paragraph.svelte';
 	import Section from '$lib/Section.svelte';
 	import SubmitButton from '$lib/SubmitButton.svelte';
+	import TermsAndConditionsCheckbox from '$lib/TermsAndConditionsCheckbox.svelte';
 	import TextArea from '$lib/TextArea.svelte';
 	import { cn } from '$lib/utils';
 	import type { SubmitFunction } from '@sveltejs/kit';
@@ -95,6 +96,8 @@
 		<Input type="email" name="email" placeholder="Email" required />
 		<Input name="subject" placeholder="Subject" required />
 		<TextArea name="message" placeholder="Message" required />
+    <TermsAndConditionsCheckbox />
+    
 		<SubmitButton>Send</SubmitButton>
 	</form>
 </Section>
