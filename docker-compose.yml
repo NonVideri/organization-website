@@ -69,7 +69,6 @@ services:
   nginx:
     image: nginx:alpine
     restart: unless-stopped
-    env_file: ./nginx/.env
     ports:
       - "80:80"
       - "443:443"

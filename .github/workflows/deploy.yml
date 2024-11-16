@@ -32,9 +32,6 @@ jobs:
           echo "${{ secrets.FLARUM_ENV }}" > ./flarum/.env
           echo "${{ secrets.FLARUM_DB_ENV }}" > ./flarum/db.env
 
-          # Nginx .env
-          echo "${{ secrets.NGINX_ENV }}" > ./nginx/.env
-
           # Certbot .env
           echo "${{ secrets.CERTBOT_ENV }}" > ./certbot/.env
       
