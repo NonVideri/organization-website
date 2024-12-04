@@ -18,7 +18,7 @@ jobs:
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan -p ${{ secrets.VPS_PORT }} -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
       
       - name: Create env files
         run: |
@@ -38,6 +38,7 @@ jobs:
       - name: Copy files to VPS
         run: |
           rsync -avz --delete \
+            -e "ssh -p ${{ secrets.VPS_PORT }}" \
             --exclude 'pb_data' \
             --exclude 'node_modules' \
             --exclude '.git' \
@@ -45,7 +46,7 @@ jobs:
       
       - name: Deploy on VPS
         run: |
-          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} '
+          ssh -p ${{ secrets.VPS_PORT }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} '
             cd /opt/app && \
             docker-compose pull && \
             docker-compose build --no-cache && \
