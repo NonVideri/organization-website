@@ -29,8 +29,8 @@ jobs:
           echo "${{ secrets.POCKETBASE_ENV }}" > ./pocketbase/.env
 
           # Flarum .env
-          echo "${{ secrets.FLARUM_ENV }}" > ./flarum/.env
-          echo "${{ secrets.FLARUM_DB_ENV }}" > ./flarum/db.env
+          # echo "${{ secrets.FLARUM_ENV }}" > ./flarum/.env
+          # echo "${{ secrets.FLARUM_DB_ENV }}" > ./flarum/db.env
 
           # Certbot .env
           echo "${{ secrets.CERTBOT_ENV }}" > ./certbot/.env
