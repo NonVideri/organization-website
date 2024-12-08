@@ -15,7 +15,7 @@ WORKDIR /app
 COPY --from=builder /app/.svelte-kit build/
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/pnpm-lock.yaml ./
-RUN pnpm install --production
+RUN npm install -g pnpm && pnpm install --production
 
 EXPOSE 3000
 CMD ["node", "build"]
