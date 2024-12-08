@@ -34,38 +34,6 @@ jobs:
 
           # Certbot .env
           echo "${{ secrets.CERTBOT_ENV }}" > ./certbot/.env
-
-      - name: Debug Secrets
-        run: |
-          if [[ -z "${{ secrets.VPS_HOST }}" ]]; then
-            echo "VPS_HOST is not set!"
-            exit 1
-          else
-            echo "VPS_HOST is set."
-          fi
-
-          if [[ -z "${{ secrets.VPS_PORT }}" ]]; then
-            echo "VPS_PORT is not set!"
-            exit 1
-          else
-            echo "VPS_PORT is set."
-          fi
-
-          if [[ -z "${{ secrets.VPS_USER }}" ]]; then
-            echo "VPS_USER is not set!"
-            exit 1
-          else
-            echo "VPS_USER is set."
-          fi
-
-      - name: Validate VPS_HOST
-        run: |
-          if [[ ! "${{ secrets.VPS_HOST }}" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-            echo "VPS_HOST is not a valid IP address."
-            exit 1
-          else
-            echo "VPS_HOST is a valid IP address."
-          fi
       
       - name: Copy files to VPS
         run: |
