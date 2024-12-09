@@ -1,6 +1,7 @@
 #!/bin/bash
 # init-vps.sh
 
+sudo apt-get update
 sudo apt-get install -y rsync docker.io docker-compose
 sudo usermod -aG docker $USER
 newgrp docker
