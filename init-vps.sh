@@ -16,7 +16,4 @@ sudo mkdir -p /opt/app/flarum_db
 
 # Set proper permissions
 sudo chown -R $USER:$USER /opt/app
-sudo chown -R $USER:$USER /opt/app/pb_data
-sudo chown -R $USER:$USER /opt/app/flarum_db
-sudo chown -R $USER:$USER /opt/app/certbot
-sudo chmod -R 755 /opt/app/certbot
+sudo chmod -R 755 /opt/app
