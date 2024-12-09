@@ -48,7 +48,6 @@ jobs:
         run: |
           ssh -p "${{ secrets.VPS_PORT }}" "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
             cd /opt/app && \
-            sudo chown -R $USER:$USER . && \
             docker-compose pull && \
             docker-compose build --no-cache && \
             docker-compose up -d
