@@ -97,7 +97,7 @@ services:
       "certonly",
       "--webroot",
       "--webroot-path=/var/www/certbot",
-      "--email=${CERTBOT_EMAIL}",
+      "--email=$${CERTBOT_EMAIL}",
       "-d", "thrivingindividuals.org",
       "-d", "www.thrivingindividuals.org",
       "--agree-tos",
