@@ -93,13 +93,16 @@ services:
       - ./certbot/www:/var/www/certbot
       - ./certbot/docker-entrypoint.sh:/docker-entrypoint.sh:ro
     entrypoint: ["/bin/sh", "/docker-entrypoint.sh"]
-    command: sh -c 'certonly --webroot 
-      --webroot-path=/var/www/certbot 
-      --email="$${CERTBOT_EMAIL}"
-      -d thrivingindividuals.org
-      -d www.thrivingindividuals.org
-      --agree-tos 
-      --non-interactive'
+    command: [
+      "certonly",
+      "--webroot",
+      "--webroot-path=/var/www/certbot",
+      "--email=${CERTBOT_EMAIL}",
+      "-d", "thrivingindividuals.org",
+      "-d", "www.thrivingindividuals.org",
+      "--agree-tos",
+      "--non-interactive"
+    ]
 
 volumes:
   pb_data:

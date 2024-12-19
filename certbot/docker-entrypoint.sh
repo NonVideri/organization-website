@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Run certbot
+# Run certbot with all arguments passed to the script
 certbot "$@"
 
 # Fix permissions after certbot runs
