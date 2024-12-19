@@ -92,6 +92,8 @@ services:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
       - ./certbot/docker-entrypoint.sh:/docker-entrypoint.sh:ro
+    depends_on:
+      - nginx
     entrypoint: ["/bin/sh", "/docker-entrypoint.sh"]
 
 volumes:
