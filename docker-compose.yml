@@ -94,7 +94,7 @@ services:
       - ./certbot/docker-entrypoint.sh:/docker-entrypoint.sh:ro
     depends_on:
       - nginx
-    entrypoint: ["/bin/sh", "/docker-entrypoint.sh"]
+    entrypoint: ["/docker-entrypoint.sh"]
 
 volumes:
   pb_data:
