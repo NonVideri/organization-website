@@ -26,17 +26,22 @@ jobs:
 
           # Certbot .env
           echo "${{ secrets.CERTBOT_ENV }}" > ./certbot/.env
+
+      - name: Install SSH key
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.VPS_HOST_KEY }}" >> ~/.ssh/known_hosts
       
       - name: Copy files to VPS
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          port: ${{ secrets.VPS_PORT }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "."
-          target: "/opt/app"
-          rm: true
+        run: |
+          rsync -avz --delete \
+            -e "ssh -p ${{ secrets.VPS_PORT }}" \
+            --exclude 'pb_data' \
+            --exclude 'node_modules' \
+            --exclude '.git' \
+            ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/app/
 
       - name: Deploy on VPS
         uses: appleboy/ssh-action@master
