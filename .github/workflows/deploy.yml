@@ -36,6 +36,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "."
           target: "/opt/app"
+          rm: true
 
       - name: Deploy on VPS
         uses: appleboy/ssh-action@master
