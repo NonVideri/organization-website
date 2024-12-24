@@ -95,6 +95,8 @@ services:
     depends_on:
       - nginx
     entrypoint: ["/docker-entrypoint.sh"]
+    networks:
+      - app_network
 
 volumes:
   pb_data:

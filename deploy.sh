@@ -5,7 +5,7 @@ cp nginx/conf.d/http.conf nginx/conf.d/default.conf
 docker-compose up -d nginx sveltekit pocketbase
 
 # Wait for nginx to be ready
-sleep 10
+sleep 20
 
 # Get SSL certificates
 docker-compose run --rm certbot
