@@ -83,6 +83,15 @@ services:
       # - flarum
     networks:
       - app_network
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   # Certbot for SSL
   certbot:
