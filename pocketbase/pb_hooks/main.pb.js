@@ -104,4 +104,4 @@ onRecordAfterCreateRequest((e) => {
     $app.dao().deleteRecord(e.record)
     throw new Error("Failed to send contact email")
   }
-});
+}, 'contacts');
