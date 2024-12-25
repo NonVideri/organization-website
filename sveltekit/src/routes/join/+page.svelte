@@ -50,7 +50,7 @@
 	<form
 		class={cn(FORM_CLASSES, 'w-full max-w-md my-6')}
 		method="POST"
-		action={`?${Routes.SUBSCRIBE}`}
+		action={Routes.SUBSCRIBE}
 		use:enhance={handleSubmit}>
 		<Input type="text" name="name" placeholder="Name *" required />
 		<Input type="email" name="email" placeholder="Email *" required />
