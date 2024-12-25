@@ -5,6 +5,9 @@ set -e  # Exit on any error
 # Stop any running containers
 docker-compose down
 
+# Pull latest changes and rebuild images
+docker-compose build --no-cache
+
 # Ensure nginx/conf.d directory exists
 mkdir -p nginx/conf.d
 
@@ -139,6 +142,7 @@ if ! docker-compose restart nginx; then
 fi
 
 echo "Starting all services..."
-docker-compose up -d
+# Use --force-recreate to ensure we're using the new images
+docker-compose up -d --force-recreate
 
 echo "Deployment completed successfully!"
