@@ -8,7 +8,7 @@
 	import SupportUsSection from '$lib/SupportUsSection.svelte';
 </script>
 
-<img id="home" src="/logo.png" alt="Thriving Individuals Logo" class="animate-fadeIn w-[50%]" />
+<img id="home" src="/logo.png" alt="Thriving Individuals Logo" class="animate-fade-in w-[50%]" />
 
 <Section class="mt-4 md:mt-6 xl:mt-8">
 	<Header>About Us</Header>

@@ -42,5 +42,5 @@
 		</NavBarDropdown>
 	</NavBarLink>
 	<!-- <NavBarLink href={Routes.JOIN} text="Join us" /> -->
-	<NavBarLink href={Routes.DONATE} text="Support us" />
+	<NavBarLink href={Routes.SUPPORT} text="Support us" />
 </nav>

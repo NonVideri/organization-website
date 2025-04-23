@@ -5,7 +5,6 @@ export const THRIVING_INDIVIDUALS_IBAN = 'PL 50 2530 0008 2060 1081 4632 0001';
 export const Routes = {
 	API_CONTACT: '/api/contact',
 	CONTACT: '/contact',
-	DONATE: '/donate',
 	FRAMEWORK: '/framework',
 	HOME: '/',
 	JOIN: '/join',
@@ -16,6 +15,7 @@ export const Routes = {
 	PROJECTS_SELF_IMPROVEMENT_MEETUP: '/projects/self-improvement-meetup',
 	STATUTE: '/statute',
 	SUBSCRIBE: '/subscribe',
+	SUPPORT: '/support',
 	TEAM: '/team',
 	TERMS_AND_CONDITIONS: '/terms-and-conditions',
 };

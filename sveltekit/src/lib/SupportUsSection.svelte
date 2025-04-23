@@ -10,7 +10,7 @@
 	<Header>Support us</Header>
 	<Paragraph>Help us empower free people all around the world.</Paragraph>
 	<Paragraph>
-		<Link href={Routes.DONATE}>
+		<Link href={Routes.SUPPORT}>
 			See how you could support our activities.
 		</Link>
 	</Paragraph>

@@ -124,5 +124,5 @@
 		></Paragraph>
 	<Paragraph isData
 		>SWIFT/BIC: <ClipboardButton copy="NESBPLPW">NESBPLPW</ClipboardButton> (Nest Bank)</Paragraph>
-	<Paragraph>See other ways to support us <Link href={Routes.DONATE}>here</Link>.</Paragraph>
+	<Paragraph><Link href={Routes.SUPPORT}>See other ways to support us.</Link></Paragraph>
 </Section>
