@@ -4,7 +4,7 @@
 	import { alert } from '../lib/alert.store';
 	import { cn } from '../lib/utils';
 
-	let dialog: HTMLDialogElement;
+	let dialog: HTMLDialogElement = $state();
 
 	alert.subscribe((value) => {
 		if (value && dialog) {
@@ -49,7 +49,7 @@
 	bind:this={dialog}
 	aria-labelledby="dialog-title"
 	aria-modal="true">
-	<button on:click={closeDialog} aria-label="Close alert">
+	<button onclick={closeDialog} aria-label="Close alert">
 		<Paragraph id="dialog-title" type="small">
 			{$alert?.message}
 		</Paragraph>

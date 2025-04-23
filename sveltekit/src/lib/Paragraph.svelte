@@ -4,13 +4,26 @@
 	import { PARAGRAPH_SIZE_CLASSES } from './classes';
 	import { cn } from './utils';
 
-	export let id = '';
-	export let type: ParagraphType = 'normal';
-	export let isData = false;
-	export let isCentered = false;
-	export let isBold = false;
-	let className: ClassValue = undefined;
-	export { className as class };
+	interface Props {
+		id?: string;
+		type?: ParagraphType;
+		isData?: boolean;
+		isCentered?: boolean;
+		isBold?: boolean;
+		class?: ClassValue;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		id = '',
+		type = 'normal',
+		isData = false,
+		isCentered = false,
+		isBold = false,
+		class: className = undefined,
+		children
+	}: Props = $props();
+	
 </script>
 
 <p
@@ -22,5 +35,5 @@
 		isBold && 'font-semibold',
 		className
 	)}>
-	<slot />
+	{@render children?.()}
 </p>

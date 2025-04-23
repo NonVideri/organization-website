@@ -3,12 +3,23 @@
 	import Link from '../../lib/Link.svelte';
 	import Paragraph from '../../lib/Paragraph.svelte';
 
-	export let photo: string;
-	export let name: string;
-	export let originalName: string | null = null;
-	export let role: string;
-	export let description: string;
-	export let website: string | null = null;
+	interface Props {
+		photo: string;
+		name: string;
+		originalName?: string | null;
+		role: string;
+		description: string;
+		website?: string | null;
+	}
+
+	let {
+		photo,
+		name,
+		originalName = null,
+		role,
+		description,
+		website = null
+	}: Props = $props();
 </script>
 
 <div class="flex flex-col items-center w-[33vw] xl:w-[25vw] my-4">

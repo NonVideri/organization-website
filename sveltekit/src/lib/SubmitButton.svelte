@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 
-	export let isLight = false;
+	interface Props {
+		isLight?: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let { isLight = false, children }: Props = $props();
 </script>
 
 <button
@@ -12,5 +17,5 @@
 			? 'bg-primary-800 hover:bg-primary-700'
 			: 'text-black bg-secondary-500 hover:bg-secondary-400'
 	)}>
-	<slot />
+	{@render children?.()}
 </button>

@@ -3,8 +3,13 @@
 	import Paragraph from './Paragraph.svelte';
 	import Section from './Section.svelte';
 
-	export let title: string;
-	export let message: string | null = null;
+	interface Props {
+		title: string;
+		message?: string | null;
+		children?: import('svelte').Snippet;
+	}
+
+	let { title, message = null, children }: Props = $props();
 </script>
 
 <Section>
@@ -12,5 +17,5 @@
 	{#if message}
 		<Paragraph>{message}</Paragraph>
 	{/if}
-	<slot />
+	{@render children?.()}
 </Section>

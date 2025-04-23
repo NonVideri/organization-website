@@ -2,10 +2,20 @@
 	import { NAVBAR_LINK_CLASSES, PARAGRAPH_SIZE_CLASSES } from '$lib/classes';
 	import { cn } from '../lib/utils';
 
-	export let href = '';
-	export let text = '';
-	export let target = '';
-	let showDropdown = false;
+	interface Props {
+		href?: string;
+		text?: string;
+		target?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		href = '',
+		text = '',
+		target = '',
+		children
+	}: Props = $props();
+	let showDropdown = $state(false);
 
 	function handleMouseEnter() {
 		showDropdown = true;
@@ -18,8 +28,8 @@
 
 <button
 	class="relative group flex-1"
-	on:mouseenter={handleMouseEnter}
-	on:mouseleave={handleMouseLeave}
+	onmouseenter={handleMouseEnter}
+	onmouseleave={handleMouseLeave}
 	aria-haspopup="true"
 	aria-expanded={showDropdown}>
 	<a
@@ -38,6 +48,6 @@
 			'absolute left-0 w-full transition-all duration-300 transform',
 			showDropdown ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
 		)}>
-		<slot />
+		{@render children?.()}
 	</div>
 </button>

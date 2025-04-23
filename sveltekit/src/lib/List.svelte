@@ -4,14 +4,19 @@
 	import ListItem from './ListItem.svelte';
 	import type { ClassValue } from 'clsx';
 
-	let className: ClassValue = undefined;
-	export { className as class };
-	export let items: Item[] = [];
+	
+	interface Props {
+		class?: ClassValue;
+		items?: Item[];
+		children?: import('svelte').Snippet;
+	}
+
+	let { class: className = undefined, items = [], children }: Props = $props();
 </script>
 
 <ol class={cn('list-decimal my-2', className)}>
 	{#each items as item}
 		<ListItem {...item} />
 	{/each}
-	<slot />
+	{@render children?.()}
 </ol>

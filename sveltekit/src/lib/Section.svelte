@@ -4,12 +4,23 @@
 	import type { ClassValue } from 'clsx';
 	import { cn } from './utils';
 
-	export let id = '';
-	let className: ClassValue = undefined;
-	export { className as class };
-	let section: HTMLElement;
-	export let isVisible = false;
-	export let isData = false;
+	
+	let section: HTMLElement = $state();
+	interface Props {
+		id?: string;
+		class?: ClassValue;
+		isVisible?: boolean;
+		isData?: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		id = '',
+		class: className = undefined,
+		isVisible = $bindable(false),
+		isData = false,
+		children
+	}: Props = $props();
 
 	onMount(() => {
 		let observer = new IntersectionObserver(
@@ -49,6 +60,6 @@
 			isData && 'items-start',
 			className
 		)}>
-		<slot />
+		{@render children?.()}
 	</div>
 </section>

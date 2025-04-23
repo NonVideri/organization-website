@@ -6,7 +6,7 @@
 	import { PROJECTS, Routes } from '$lib/constants';
 
 	let lastScroll = 0;
-	let showMenu = true;
+	let showMenu = $state(true);
 
 	onMount(() => {
 		window.addEventListener('scroll', () => {

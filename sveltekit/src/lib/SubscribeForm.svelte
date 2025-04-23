@@ -55,7 +55,7 @@
 	<button
 		type="button"
 		class="absolute top-2 right-5 text-3xl cursor-pointer"
-		on:click={handleClose}>
+		onclick={handleClose}>
 		&times;
 	</button>
 	<Header type="h4" class="self-center">Join our elite mailing list</Header>

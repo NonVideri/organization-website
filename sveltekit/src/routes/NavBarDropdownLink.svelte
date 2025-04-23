@@ -2,8 +2,12 @@
 	import { NAVBAR_LINK_CLASSES, PARAGRAPH_SIZE_CLASSES } from '$lib/classes';
 	import { cn } from '../lib/utils';
 
-	export let href = '';
-	export let text = '';
+	interface Props {
+		href?: string;
+		text?: string;
+	}
+
+	let { href = '', text = '' }: Props = $props();
 </script>
 
 <li>

@@ -20,8 +20,8 @@
 	import { cn } from '$lib/utils';
 	import type { SubmitFunction } from '@sveltejs/kit';
 
-	let email = '';
-	let error = '';
+	let email = $state('');
+	let error = $state('');
 
 	async function onSuccess(token: string) {
 		try {
@@ -78,7 +78,7 @@
 		class="cf-turnstile"
 		data-sitekey="0x4AAAAAAAj_phNsBEbR3uvS"
 		data-callback={onSuccess}
-		data-error-callback={onFailure} />
+		data-error-callback={onFailure}></div>
 	{#if email}
 		<ClipboardButton copy={email}>{email}</ClipboardButton>
 	{/if}

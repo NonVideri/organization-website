@@ -4,7 +4,7 @@
 	import Link from '$lib/Link.svelte';
 	import { Routes } from '$lib/constants';
 
-	export let data;
+	let { data } = $props();
 </script>
 
 {#if data.successful}

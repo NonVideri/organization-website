@@ -5,9 +5,14 @@
 	import { clipboard } from '@skeletonlabs/skeleton';
 	import { cn } from './utils';
 	import { fade } from 'svelte/transition';
-	export let isLight = false;
-	export let copy: string;
-	let copied = false;
+	interface Props {
+		isLight?: boolean;
+		copy: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let { isLight = false, copy, children }: Props = $props();
+	let copied = $state(false);
 
 	function onClickHandler(): void {
 		copied = true;
@@ -30,9 +35,9 @@
 	)}
 	data-clipboard="clipboardButton"
 	use:clipboard={copy}
-	on:click={onClickHandler}
+	onclick={onClickHandler}
 	disabled={copied}
-	><slot /><span class="relative">
+	>{@render children?.()}<span class="relative">
 		<Fa
 			class={cn('inline ml-2', isLight ? 'text-secondary-300' : 'text-secondary-400')}
 			icon={copied ? faCheck : faCopy} />
