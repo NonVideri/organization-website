@@ -14,13 +14,12 @@
 
 	const teamMembers: TeamMember[] = [
 		{
-			photo: '/team/christopher-mael.jpg',
-			name: 'Christopher Mael',
-			originalName: 'Krzysztof Moszyński',
+			photo: '/team/krzysztof-moszynski.jpg',
+			name: 'Krzysztof Moszyński',
 			role: 'Founder, President',
 			description:
-				"Life coach, self-improvement mentor, software developer. Chris brings systemic thinking to people's lives and minds, helping them discern and overcome their limitations, utilizing his multidisciplinary knowledge and various tools of practical psychology.",
-			website: 'https://christophermael.com',
+				"Life coach, self-improvement mentor, software developer. Krzysztof brings systemic thinking to people's lives and minds, helping them discern and overcome their limitations, utilizing his multidisciplinary knowledge and various tools of practical psychology.",
+			// website: 'https://moszynski.com',
 		},
 	];
 </script>
