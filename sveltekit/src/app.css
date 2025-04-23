@@ -1,0 +1,99 @@
+/* Write your global styles here, in PostCSS syntax */
+@import 'tailwindcss';
+@import "@skeletonlabs/skeleton";
+@import "@skeletonlabs/skeleton/optional/presets";
+/* Add your theme import for your theme: "theme" here */
+@source "../node_modules/@skeletonlabs/skeleton-svelte/dist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --animate-bg-breathing: bgBreathing 15s infinite;
+  --animate-fade-in: fadeIn 1.5s forwards;
+  --animate-fade-out: fadeOut 1.5s forwards;
+
+  --shadow-focus: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  --font-montserrat: Montserrat, sans-serif;
+
+  --text-2xs: 0.6rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  --text-9xl: 8rem;
+
+  --color-black: #121212;
+
+  @keyframes bgBreathing {
+    0% {
+      background-color: #121212;
+    }
+    20% {
+      background-color: #242424;
+    }
+    50% {
+      background-color: #121212;
+    }
+    80% {
+      background-color: #212121;
+    }
+    100% {
+      background-color: #121212;
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(5rem);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+html {
+	@apply scroll-smooth;
+}
+
+body {
+	@apply font-montserrat leading-relaxed text-white m-0 p-0;
+}

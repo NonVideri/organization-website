@@ -2,7 +2,6 @@
 	import Fa from 'svelte-fa';
 	import { faCopy } from '@fortawesome/free-regular-svg-icons';
 	import { faCheck } from '@fortawesome/free-solid-svg-icons';
-	import { clipboard } from '@skeletonlabs/skeleton';
 	import { cn } from './utils';
 	import { fade } from 'svelte/transition';
 	interface Props {

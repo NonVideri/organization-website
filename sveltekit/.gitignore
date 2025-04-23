@@ -1,0 +1,17 @@
+# Envs
+.env
+.env.*
+*.env
+!.env.example
+
+# Sveltekit
+.DS_Store
+node_modules/
+build/
+.svelte-kit/
+package/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Pocketbase
+pb_data/

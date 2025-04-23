@@ -15,4 +15,4 @@ export const NAVBAR_LINK_CLASSES =
 
 export const FORM_CLASSES = 'flex flex-col space-y-5 md:space-y-6 lg:space-y-7 xl:space-y-8';
 
-export const INPUT_CLASSES = "px-6 py-4 text-lg text-black border-none rounded-md outline-none focus:shadow-2xl"
+export const INPUT_CLASSES = "px-6 py-4 text-lg text-black border-none rounded-md outline-hidden focus:shadow-2xl"
