@@ -61,8 +61,8 @@ onRecordAfterUpdateRequest((e) => {
     },
     to: [{address: email}],
     subject: "Welcome to Thriving Individuals!",
-    text: `Dear ${name},\n\nThank you for subscribing to the Thriving Individuals newsletter.\n\nJoin our forums to meet other great members of our community: ${process.env.FORUM_URL}\n\nStay excellent,\nThriving Individuals Team`,
-    html: `Dear ${name},<br/><br/>Thank you for subscribing to the Thriving Individuals newsletter.<br><br>Join our forums to meet other great members of our community: <a href="${process.env.FORUM_URL}">Thriving Individuals Forums</a><br><br>Stay excellent,<br>Thriving Individuals Team`,
+    text: `Dear ${name},\n\nThank you for subscribing to the Thriving Individuals newsletter.\n\nStay excellent,\nThriving Individuals Team`,
+    html: `Dear ${name},<br/><br/>Thank you for subscribing to the Thriving Individuals newsletter.<br/><br/>Stay excellent,<br/>Thriving Individuals Team`,
   });
 
   try {

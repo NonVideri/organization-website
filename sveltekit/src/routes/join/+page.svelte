@@ -2,7 +2,6 @@
 	import type { SubmitFunction } from '@sveltejs/kit';
 
 	import { enhance } from '$app/forms';
-	import { PUBLIC_FORUM_URL } from '$env/static/public';
 	import Header from '$lib/Header.svelte';
 	import Paragraph from '$lib/Paragraph.svelte';
 	import Section from '$lib/Section.svelte';
@@ -14,8 +13,6 @@
 	import SubmitButton from '$lib/SubmitButton.svelte';
 	import TermsAndConditionsCheckbox from '$lib/TermsAndConditionsCheckbox.svelte';
 
-	let forumElement: HTMLAnchorElement;
-
 	const handleSubmit: SubmitFunction = ({ formData, cancel }) => {
 		if (!formData.get('accepted')) {
 			setAlert('Please accept the terms & conditions', 'warning');
@@ -26,7 +23,6 @@
 		return ({ result, update }) => {
 			if (result.type === 'success') {
 				setAlert('Almost there! Please check your email to confirm the subscription.', 'success');
-				forumElement.scrollIntoView({ behavior: 'smooth' });
 				return update();
 			}
 
@@ -58,21 +54,4 @@
 
 		<SubmitButton>Subscribe</SubmitButton>
 	</form>
-</Section>
-
-<Section>
-	<Header>Join our private community</Header>
-	<Paragraph>Interact with ambitious Individuals from all around the world:</Paragraph>
-	<a
-		class="block rounded-xl mt-4 md:mt-6 lg:mt-8 bg-white"
-		href={PUBLIC_FORUM_URL}
-		target="_blank"
-		rel="noopener noreferrer"
-		bind:this={forumElement}>
-		<img
-			id="home"
-			src="/logo-forum.png"
-			alt="Thriving Individuals Community Logo"
-			class="mx-auto rounded-lg hover:opacity-90 transition-opacity duration-200" />
-	</a>
 </Section>

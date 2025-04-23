@@ -3,7 +3,6 @@
 	import NavBarLink from './NavBarLink.svelte';
 	import NavBarDropdown from './NavBarDropdown.svelte';
 	import NavBarDropdownLink from './NavBarDropdownLink.svelte';
-	import { PUBLIC_FORUM_URL } from '$env/static/public';
 	import { PROJECTS, Routes } from '$lib/constants';
 
 	let lastScroll = 0;
@@ -42,10 +41,6 @@
 			{/each}
 		</NavBarDropdown>
 	</NavBarLink>
-	<NavBarLink href={PUBLIC_FORUM_URL} text="Join us" target="_blank">
-		<NavBarDropdown>
-			<NavBarDropdownLink href={Routes.JOIN} text="Join our newsletter" />
-		</NavBarDropdown>
-	</NavBarLink>
+	<NavBarLink href={Routes.JOIN} text="Join us" />
 	<NavBarLink href={Routes.DONATE} text="Support us" />
 </nav>

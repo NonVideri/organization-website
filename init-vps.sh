@@ -13,7 +13,6 @@ sudo mkdir -p /opt/app
 sudo mkdir -p /opt/app/certbot/conf
 sudo mkdir -p /opt/app/certbot/www
 sudo mkdir -p /opt/app/pb_data
-sudo mkdir -p /opt/app/flarum_db
 
 # Set proper permissions
 sudo chown -R $USER:$USER /opt/app

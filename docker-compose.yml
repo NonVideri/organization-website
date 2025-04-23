@@ -47,24 +47,6 @@ services:
         max-size: "10m"
         max-file: "3"
 
-  # flarum:
-  #   image: mondediefr/flarum:stable
-  #   restart: unless-stopped
-  #   env_file: ./flarum/.env
-  #   depends_on:
-  #     - flarum_db
-  #   networks:
-  #     - app_network
-
-  # flarum_db:
-  #   image: mariadb:10.6
-  #   restart: unless-stopped
-  #   env_file: ./flarum/db.env
-  #   volumes:
-  #     - /opt/app/flarum_db:/var/lib/mysql
-  #   networks:
-  #     - app_network
-
   # Nginx reverse proxy
   nginx:
     image: nginx:alpine
@@ -80,7 +62,6 @@ services:
     depends_on:
       - sveltekit
       - pocketbase
-      # - flarum
     networks:
       - app_network
     security_opt:
@@ -116,7 +97,6 @@ volumes:
       type: none
       device: /opt/app/pb_data
       o: bind
-  # flarum_db_data:
 
 networks:
   app_network:
