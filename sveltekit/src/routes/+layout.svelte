@@ -1,11 +1,8 @@
 <script lang="ts">
 	import {
-		getModalStore,
-		initializeStores,
-		Modal,
-		type ModalComponent,
-	} from '@skeletonlabs/skeleton';
-	import '../app.pcss';
+    Modal,
+	} from '@skeletonlabs/skeleton-svelte';
+	import '../app.css';
 	import SubscribeForm from '$lib/SubscribeForm.svelte';
 	import Alert from './Alert.svelte';
 	import NavBar from './NavBar.svelte';
@@ -18,25 +15,26 @@
 
 	let { children }: Props = $props();
 
-	const modalComponent: ModalComponent = { ref: SubscribeForm };
+  let isModalOpen = $state(false);
 
-	initializeStores();
-
-	const modalStore = getModalStore();
+  function closeModal() {
+    isModalOpen = false;
+  }
 
 	onMount(() => {
 		if (!localStorage.getItem('subscribed')) {
-			modalStore.trigger({
-				type: 'component',
-				component: modalComponent,
-			});
+			isModalOpen = true;
 		}
 	});
 </script>
 
 <NavBar />
 <Alert />
-<Modal />
+<Modal open={isModalOpen}>
+  {#snippet content()}
+    <SubscribeForm onClose={closeModal} />
+  {/snippet}
+</Modal>
 <div
 	class="flex flex-col items-center w-full mt-12 sm:mt-[50px] md:mt-[52px] lg:mt-[60px] xl:mt-20">
 	{#if !NO_SEPARATOR_ROUTES.includes(page.url.pathname)}

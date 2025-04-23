@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { getModalStore } from '@skeletonlabs/skeleton';
-	import type { SubmitFunction } from '@sveltejs/kit';
+  import type { SubmitFunction } from '@sveltejs/kit';
 	import { enhance } from '$app/forms';
 
 	import { setAlert } from '$lib/alert.store';
@@ -13,7 +12,11 @@
 	import { cn } from '$lib/utils';
 	import TermsAndConditionsCheckbox from '$lib/TermsAndConditionsCheckbox.svelte';
 
-	const modalStore = getModalStore();
+  interface Props {
+    onClose: () => void;
+  }
+
+  let { onClose }: Props = $props();
 
 	const handleSubmit: SubmitFunction = ({ formData, cancel }) => {
 		if (!formData.get('accepted')) {
@@ -25,7 +28,7 @@
 		return ({ result, update }) => {
 			if (result.type === 'success') {
 				localStorage.setItem('subscribed', 'true');
-				modalStore.close();
+				onClose();
 				setAlert('Almost there! Please check your email to confirm the subscription.', 'success');
 				return update();
 			}
@@ -42,8 +45,8 @@
 	};
 
 	const handleClose = () => {
-		modalStore.close();
 		localStorage.setItem('subscribed', 'true');
+		onClose();
 	};
 </script>
 
@@ -56,7 +59,7 @@
 		type="button"
 		class="absolute top-2 right-5 text-3xl cursor-pointer"
 		onclick={handleClose}>
-		&times;
+		×
 	</button>
 	<Header type="h4" class="self-center">Join our elite mailing list</Header>
 	<Input type="text" name="name" placeholder="Name *" required />
