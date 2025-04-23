@@ -11,7 +11,7 @@
 	<Paragraph>Help us empower free people all around the world.</Paragraph>
 	<Paragraph>
 		<Link href={Routes.DONATE}>
-			Click here to see how you could support our activities.
+			See how you could support our activities.
 		</Link>
 	</Paragraph>
 </Section>

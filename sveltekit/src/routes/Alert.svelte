@@ -4,7 +4,7 @@
 	import { alert } from '../lib/alert.store';
 	import { cn } from '../lib/utils';
 
-	let dialog: HTMLDialogElement = $state();
+	let dialog: HTMLDialogElement | undefined = $state();
 
 	alert.subscribe((value) => {
 		if (value && dialog) {

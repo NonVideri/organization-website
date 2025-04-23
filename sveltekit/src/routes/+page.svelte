@@ -5,26 +5,24 @@
 	import List from '$lib/List.svelte';
 	import Link from '$lib/Link.svelte';
 	import { Routes } from '$lib/constants';
+	import SupportUsSection from '$lib/SupportUsSection.svelte';
 </script>
 
-<img id="home" src="/logo.png" alt="Thriving Individuals Logo" class="animate-fadeIn w-[90%]" />
+<img id="home" src="/logo.png" alt="Thriving Individuals Logo" class="animate-fadeIn w-[50%]" />
 
 <Section class="mt-4 md:mt-6 xl:mt-8">
 	<Header>About Us</Header>
 	<Paragraph>
-		We are a global community of freedom-loving individuals, who are dedicated to personal growth,
-		and the pursuit of excellence in all aspects of our lives.
+    We empower free people all around the world to achieve fulfillment and success in their lives.
+	</Paragraph>
+  <Paragraph>
+    Our aim is to strengthen freedom by strengthening freedom-loving individuals.
+  </Paragraph>
+	<Paragraph>
+		We embrace all aspects of human flourishing and the pursuit of virtue and excellence.
 	</Paragraph>
 	<Paragraph>
-		We empower free people all around the world to achieve fulfillment in their personal lives, and
-		success in their careers & businesses.
-	</Paragraph>
-	<Paragraph>
-		We embrace all aspects of human flourishing and the pursuit of virtue, growth, and personal
-		excellence.
-	</Paragraph>
-	<Paragraph>
-		Interested? <Link href={Routes.JOIN}>Join us</Link>.
+		<Link href={Routes.PROJECTS}>Learn more about our projects.</Link>
 	</Paragraph>
 </Section>
 
@@ -93,3 +91,5 @@
 			},
 		]} />
 </Section>
+
+<SupportUsSection />

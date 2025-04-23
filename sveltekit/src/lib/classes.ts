@@ -11,8 +11,8 @@ export const PARAGRAPH_SIZE_CLASSES: Record<ParagraphType, string> = {
 export const SECTION_CLASSES = 'flex flex-col sm:items-center w-full';
 
 export const NAVBAR_LINK_CLASSES =
-	'block py-3 lg:py-4 xl:py-5 text-center text-black bg-secondary-600 hover:bg-secondary-400 transition-all duration-200';
+	'block py-3 lg:py-4 xl:py-5 text-center text-black bg-surface-300 hover:bg-surface-200 transition-all duration-200';
 
 export const FORM_CLASSES = 'flex flex-col space-y-5 md:space-y-6 lg:space-y-7 xl:space-y-8';
 
-export const INPUT_CLASSES = "px-6 py-4 text-lg text-black border-none rounded-md outline-hidden focus:shadow-2xl"
+export const INPUT_CLASSES = "px-6 py-4 text-lg text-black bg-white border-none rounded-md outline-hidden focus:shadow-2xl"

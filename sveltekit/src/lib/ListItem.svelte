@@ -19,5 +19,5 @@
 </script>
 
 <li class={cn('my-2', PARAGRAPH_SIZE_CLASSES[type])}>
-	{#if title}<strong>{title}</strong> — {/if}{#if description}{description}{/if}{@render children?.()}
+	{#if title}<strong>{title}</strong> —{" "}{/if}{#if description}{description}{/if}{@render children?.()}
 </li>

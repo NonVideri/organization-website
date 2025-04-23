@@ -29,7 +29,7 @@
 		'hover:underline font-semibold transition-all duration-200',
 		isLight
 			? 'text-primary-400 hover:text-primary-700'
-			: 'text-secondary-400 hover:text-secondary-300',
+			: 'text-primary-400 hover:text-primary-300',
 		className
 	)}>
 	{@render children?.()}

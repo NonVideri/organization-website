@@ -26,11 +26,11 @@
 		'py-[px] px-1 rounded-lg border-dotted border-2 leading-normal',
 		isLight
 			? copied
-				? 'border-secondary-300/50'
-				: 'hover:bg-secondary-300/20 border-secondary-300'
+				? 'border-primary-300/50'
+				: 'hover:bg-primary-300/20 border-primary-300'
 			: copied
-			? 'border-secondary-400/50'
-			: 'hover:bg-secondary-400/20 border-secondary-400'
+			? 'border-primary-400/50'
+			: 'hover:bg-primary-400/20 border-primary-400'
 	)}
 	data-clipboard="clipboardButton"
 	use:clipboard={copy}
@@ -38,14 +38,14 @@
 	disabled={copied}
 	>{@render children?.()}<span class="relative">
 		<Fa
-			class={cn('inline ml-2', isLight ? 'text-secondary-300' : 'text-secondary-400')}
+			class={cn('inline ml-2', isLight ? 'text-primary-300' : 'text-primary-400')}
 			icon={copied ? faCheck : faCopy} />
 		{#if copied}
 			<span
 				out:fade
 				class={cn(
 					'absolute px-1 rounded-lg bottom-6',
-					isLight ? 'bg-secondary-400 text-white' : 'bg-secondary-500 text-black'
+					isLight ? 'bg-primary-400 text-white' : 'bg-primary-500 text-black'
 				)}>
 				Copied!
 			</span>

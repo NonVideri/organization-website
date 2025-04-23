@@ -41,6 +41,6 @@
 			{/each}
 		</NavBarDropdown>
 	</NavBarLink>
-	<NavBarLink href={Routes.JOIN} text="Join us" />
+	<!-- <NavBarLink href={Routes.JOIN} text="Join us" /> -->
 	<NavBarLink href={Routes.DONATE} text="Support us" />
 </nav>

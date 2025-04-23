@@ -4,9 +4,9 @@
 	import type { ClassValue } from 'clsx';
 	import { cn } from './utils';
 
-	
 	let section: HTMLElement = $state();
-	interface Props {
+
+  interface Props {
 		id?: string;
 		class?: ClassValue;
 		isVisible?: boolean;
@@ -51,11 +51,11 @@
 	{id}
 	class={cn(
 		'w-full px-6 md:px-10 xl:px-16 2xl:px-24 mb-6 md:mb-10 xl:mb-16 2xl:mb-24',
-		isVisible ? 'opacity-100 animate-fadeIn' : 'opacity-0'
+		isVisible ? 'opacity-100 animate-fade-in' : 'opacity-0'
 	)}>
 	<div
 		class={cn(
-			'py-12 md:py-16 xl:py-24 px-16 sm:px-16 md:px-20 lg:px-40 xl:px-64 2xl:px-80 bg-primary-800 selection:bg-secondary-500 selection:text-black',
+			'py-12 md:py-16 xl:py-24 px-16 sm:px-16 md:px-20 lg:px-40 xl:px-64 2xl:px-80 bg-surface-800 selection:bg-primary-500 selection:text-black',
 			SECTION_CLASSES,
 			isData && 'items-start',
 			className

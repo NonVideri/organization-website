@@ -9,7 +9,8 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { NO_SEPARATOR_ROUTES } from '$lib/constants';
-	interface Props {
+
+  interface Props {
 		children?: import('svelte').Snippet;
 	}
 
@@ -42,7 +43,7 @@
 	{/if}
 	{@render children?.()}
 </div>
-<footer class="flex flex-col items-center w-full py-4 md:py-6 xl:py-8 text-sm bg-primary-800">
+<footer class="flex flex-col items-center w-full py-4 md:py-6 xl:py-8 text-sm bg-surface-800">
 	<p>© 2023 Thriving Individuals Foundation</p>
 	<p>All rights reserved.</p>
 </footer>
