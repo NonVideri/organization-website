@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Header from '../../lib/Header.svelte';
-	import Section from '../../lib/Section.svelte';
-	import TeamMember from './TeamMember.svelte';
+	import Header from "../../lib/Header.svelte";
+	import Section from "../../lib/Section.svelte";
+	import TeamMember from "./TeamMember.svelte";
 
 	interface TeamMember {
 		photo: string;
@@ -14,12 +14,20 @@
 
 	const teamMembers: TeamMember[] = [
 		{
-			photo: '/team/krzysztof-moszynski.jpg',
-			name: 'Krzysztof Moszyński',
-			role: 'Founder, President',
+			photo: "/team/krzysztof-moszynski.jpg",
+			name: "Krzysztof Moszyński",
+			role: "Founder, President",
 			description:
-				"Life coach, self-improvement mentor, software developer. Krzysztof brings systemic thinking to people's lives and minds, helping them discern and overcome their limitations, utilizing his multidisciplinary knowledge and various tools of practical psychology.",
+				"Life & excellence coach, software creator. Krzysztof brings systemic thinking to people's lives and minds, helping them discern and overcome their limitations, utilizing his multidisciplinary knowledge and various tools of practical psychology.",
 			// website: 'https://moszynski.com',
+		},
+		{
+			photo: "/team/gabriel-jedrol.jpg",
+			name: "Gabriel Jędrol",
+			role: "Legal Consultant",
+			description:
+				"Tax lawyer and NGO project manager. Gabriel makes entepreneurs' lives easier by providing them with personalized legal solutions.",
+			website: "https://www.linkedin.com/in/gabriel-jedrol/",
 		},
 	];
 </script>
