@@ -143,6 +143,6 @@ fi
 
 echo "Starting all services..."
 # Use --force-recreate to ensure we're using the new images
-docker-compose up -d --force-recreate
+docker-compose --verbose up -d --force-recreate
 
 echo "Deployment completed successfully!"
