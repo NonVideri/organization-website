@@ -142,7 +142,8 @@ if ! docker-compose restart nginx; then
 fi
 
 echo "Starting all services..."
-# Use --force-recreate to ensure we're using the new images
-docker-compose --verbose up -d --force-recreate
+docker-compose up -d nginx
+docker-compose up -d pocketbase
+docker-compose up -d sveltekit
 
 echo "Deployment completed successfully!"
