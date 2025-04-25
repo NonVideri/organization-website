@@ -10,7 +10,7 @@
 
 <img id="home" src="/logo.png" alt="Thriving Individuals Logo" class="animate-fade-in w-[50%]" />
 
-<Section class="mt-4 md:mt-6 xl:mt-8">
+<Section class="mt-2 md:mt-3 xl:mt-4">
 	<Header>About Us</Header>
 	<Paragraph>
     We empower free people all around the world to achieve fulfillment and success in their lives.

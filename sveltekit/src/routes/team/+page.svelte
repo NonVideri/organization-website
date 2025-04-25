@@ -35,7 +35,7 @@
 <Section>
 	<Header type="h1">Our Team</Header>
 
-	<div class="flex flex-row py-4 space-x-2">
+	<div class="flex flex-col md:flex-row py-4 space-y-4 md:space-y-0 md:space-x-4 lg:space-x-6 xl:space-x-8">
 		{#each teamMembers as member}
 			<TeamMember {...member} />
 		{/each}
