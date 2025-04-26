@@ -3,10 +3,31 @@
 set -e  # Exit on any error
 
 # Stop any running containers
-docker-compose down
+docker-compose stop
+
+# Backup existing certificates
+if [ -d "certbot/conf/live/thrivingindividuals.org" ]; then
+    echo "Backing up existing certificates..."
+    mkdir -p certbot/conf.bak
+    cp -r certbot/conf/live certbot/conf.bak/
+    cp -r certbot/conf/archive certbot/conf.bak/
+    cp -r certbot/conf/renewal certbot/conf.bak/
+fi
+
+docker-compose rm -f
 
 # Pull latest changes and rebuild images
 docker-compose build --no-cache
+
+# Restore certificates if backup exists
+if [ -d "certbot/conf.bak/live" ]; then
+    echo "Restoring certificates from backup..."
+    mkdir -p certbot/conf
+    cp -r certbot/conf.bak/live certbot/conf/
+    cp -r certbot/conf.bak/archive certbot/conf/
+    cp -r certbot/conf.bak/renewal certbot/conf/
+    rm -rf certbot/conf.bak
+fi
 
 # Ensure nginx/conf.d directory exists
 mkdir -p nginx/conf.d
@@ -43,13 +64,21 @@ if ! curl -s -o /dev/null -w "%{http_code}" http://localhost/.well-known/acme-ch
     exit 1
 fi
 
-echo "Obtaining SSL certificate..."
-docker-compose run --rm certbot
-
-# Check if certificates were obtained
-if [ ! -f "certbot/conf/live/thrivingindividuals.org/fullchain.pem" ]; then
-    echo "Failed to obtain SSL certificates"
-    exit 1
+echo "Checking for existing certificates..."
+if [ -f "certbot/conf/live/thrivingindividuals.org/fullchain.pem" ] && \
+   [ -f "certbot/conf/live/thrivingindividuals.org/privkey.pem" ]; then
+    echo "Using existing certificates..."
+else
+    echo "Obtaining SSL certificate..."
+    if ! docker-compose run --rm certbot; then
+        echo "Failed to obtain SSL certificates. Checking if we can use existing ones..."
+        if [ ! -f "certbot/conf/live/thrivingindividuals.org/fullchain.pem" ] || \
+           [ ! -f "certbot/conf/live/thrivingindividuals.org/privkey.pem" ]; then
+            echo "No existing certificates found. Deployment cannot continue."
+            exit 1
+        fi
+        echo "Found existing certificates, continuing with deployment..."
+    fi
 fi
 
 echo "Configuring HTTPS..."

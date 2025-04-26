@@ -57,8 +57,8 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
+      - certbot_conf:/etc/letsencrypt
+      - certbot_www:/var/www/certbot
     depends_on:
       - sveltekit
       - pocketbase
@@ -81,8 +81,8 @@ services:
     image: certbot/certbot
     env_file: ./certbot/.env
     volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
+      - certbot_conf:/etc/letsencrypt
+      - certbot_www:/var/www/certbot
       - ./certbot/docker-entrypoint.sh:/docker-entrypoint.sh:ro
     depends_on:
       - nginx
@@ -96,6 +96,18 @@ volumes:
     driver_opts:
       type: none
       device: /opt/app/pb_data
+      o: bind
+  certbot_conf:
+    driver: local
+    driver_opts:
+      type: none
+      device: /opt/app/certbot/conf
+      o: bind
+  certbot_www:
+    driver: local
+    driver_opts:
+      type: none
+      device: /opt/app/certbot/www
       o: bind
 
 networks:
