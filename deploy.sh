@@ -2,6 +2,11 @@
 
 set -e  # Exit on any error
 
+mkdir -p /opt/app/certbot/conf
+mkdir -p /opt/app/certbot/www
+mkdir -p /opt/app/pb_data
+mkdir -p /opt/app/nginx/conf.d
+
 # Stop any running containers
 docker-compose stop
 
