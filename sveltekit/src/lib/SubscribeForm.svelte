@@ -51,7 +51,7 @@
 </script>
 
 <form
-	class={cn(FORM_CLASSES, 'absolute pt-8 pb-10 px-32 max-w-2xl rounded-xl bg-primary-600')}
+	class={cn(FORM_CLASSES, 'relative pt-8 pb-10 px-32 max-w-2xl rounded-xl bg-primary-600')}
 	method="POST"
 	action={Routes.SUBSCRIBE}
 	use:enhance={handleSubmit}>
