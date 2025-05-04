@@ -7,6 +7,6 @@
 <SvelteSeo title={TITLE} openGraph={{ title: TITLE }} />
 
 <iframe
-	src="/statute.pdf"
+	src="/statute-document.pdf"
 	class="w-full h-screen"
 	title="Thriving Individuals Foundation Statute"></iframe>
