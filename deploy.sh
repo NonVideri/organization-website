@@ -154,6 +154,15 @@ server {
 
     # PDF serving
     location ~* \.pdf$ {
+        proxy_pass http://sveltekit:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # Override X-Frame-Options to allow PDFs in iframes
+        proxy_hide_header X-Frame-Options;
         add_header X-Frame-Options "SAMEORIGIN" always;
         add_header Content-Security-Policy "frame-ancestors 'self';" always;
     }
