@@ -150,6 +150,12 @@ server {
         proxy_read_timeout 86400;
     }
 
+    # PDF serving
+    location ~* \.pdf$ {
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header Content-Security-Policy "frame-ancestors 'self';" always;
+    }
+
     # Pocketbase API
     location /pb/ {
         rewrite ^/pb/(.*) /$1 break;

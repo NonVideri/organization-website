@@ -4,7 +4,7 @@
   const TITLE = 'Thriving Individuals Foundation Statute';
 </script>
 
-<SvelteSeo title={TITLE} />
+<SvelteSeo title={TITLE} openGraph={{ title: TITLE }} />
 
 <iframe
 	src="/statute.pdf"
