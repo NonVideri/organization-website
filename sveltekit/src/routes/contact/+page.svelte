@@ -1,9 +1,12 @@
 <script lang="ts">
+	import SvelteSeo from "svelte-seo";
+
 	import { enhance } from "$app/forms";
 	import { setAlert } from "$lib/alert.store";
 	import { FORM_CLASSES } from "$lib/classes";
 	import ClipboardButton from "$lib/ClipboardButton.svelte";
 	import {
+	BASE_URL,
 		Routes,
 		THRIVING_INDIVIDUALS_IBAN,
 		THRIVING_INDIVIDUALS_NIP,
@@ -37,7 +40,23 @@
 			}
 		};
 	};
+
+  const TITLE = "Contact Us - Thriving Individuals Foundation";
+  const DESCRIPTION = "Get in touch with the Thriving Individuals Foundation. Find our contact details and reach out with your inquiries.";
+  const URL = `${BASE_URL}${Routes.CONTACT}`;
 </script>
+
+<SvelteSeo
+  title={TITLE}
+  description={DESCRIPTION}
+  canonical={URL}
+  openGraph={{
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
+    type: "website",
+  }}
+/>
 
 <Section isVisible>
 	<Header type="h1">Contact us</Header>

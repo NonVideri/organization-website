@@ -1,12 +1,29 @@
 <script lang="ts">
+	import SvelteSeo from "svelte-seo";
 	import Section from '$lib/Section.svelte';
 	import Header from '$lib/Header.svelte';
 	import Paragraph from '$lib/Paragraph.svelte';
 	import List from '$lib/List.svelte';
 	import Link from '$lib/Link.svelte';
-	import { Routes } from '$lib/constants';
+	import { BASE_URL, Routes } from '$lib/constants';
 	import SupportUsSection from '$lib/SupportUsSection.svelte';
+
+  const TITLE = "Home - Thriving Individuals Foundation";
+  const DESCRIPTION = "Learn about the Thriving Individuals Foundation and our mission to empower individuals to reach their full potential through various programs and initiatives.";
+  const URL = `${BASE_URL}${Routes.HOME}`;
 </script>
+
+<SvelteSeo
+  title={TITLE}
+  description={DESCRIPTION}
+  canonical={URL}
+  openGraph={{
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
+    type: "website",
+  }}
+/>
 
 <img id="home" src="/logo.png" alt="Thriving Individuals Logo" class="animate-fade-in w-[50%]" />
 

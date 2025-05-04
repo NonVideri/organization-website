@@ -1,4 +1,7 @@
 <script lang="ts">
+	import SvelteSeo from "svelte-seo";
+	import { BASE_URL, Routes } from '$lib/constants';
+
 	import Header from '../../lib/Header.svelte';
 	import Paragraph from '../../lib/Paragraph.svelte';
 	import Section from '../../lib/Section.svelte';
@@ -19,7 +22,6 @@
 	import { enhance } from '$app/forms';
 	import Input from '$lib/Input.svelte';
 	import { setAlert } from '$lib/alert.store';
-	import { Routes } from '$lib/constants';
 	import { cn } from '$lib/utils';
 	import { FORM_CLASSES } from '$lib/classes';
 	import SubmitButton from '$lib/SubmitButton.svelte';
@@ -76,7 +78,23 @@
 			logo: '/logos/cardano.svg',
 		},
 	];
+
+	const TITLE = "Support Us - Thriving Individuals Foundation";
+  const DESCRIPTION = "Help support the mission of the Thriving Individuals Foundation. Learn about ways you can contribute and make a difference.";
+  const URL = `${BASE_URL}${Routes.SUPPORT}`;
 </script>
+
+<SvelteSeo
+  title={TITLE}
+  description={DESCRIPTION}
+  canonical={URL}
+  openGraph={{
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
+    type: "website",
+  }}
+/>
 
 <Section>
 	<Header type="h1">Support us</Header>

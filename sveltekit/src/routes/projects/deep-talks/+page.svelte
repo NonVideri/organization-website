@@ -1,12 +1,29 @@
 <script lang="ts">
-	import { Routes } from '$lib/constants';
+	import SvelteSeo from "svelte-seo";
+	import { BASE_URL, Routes } from '$lib/constants';
 	import Header from '$lib/Header.svelte';
 	import Image from '$lib/Image.svelte';
 	import Link from '$lib/Link.svelte';
 	import Paragraph from '$lib/Paragraph.svelte';
 	import Section from '$lib/Section.svelte';
 	import SupportUsSection from '$lib/SupportUsSection.svelte';
+
+  const TITLE = "Deep Talks - Thriving Individuals Foundation";
+  const DESCRIPTION = "Learn about the Deep Talks, a closed integration, circling & mastermind event for the members of the Thriving Individuals community.";
+  const URL = `${BASE_URL}${Routes.PROJECTS_DEEP_TALKS}`;
 </script>
+
+<SvelteSeo
+  title={TITLE}
+  description={DESCRIPTION}
+  canonical={URL}
+  openGraph={{
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
+    type: "website",
+  }}
+/>
 
 <Section isVisible>
 	<Header type="h1">Deep Talks</Header>

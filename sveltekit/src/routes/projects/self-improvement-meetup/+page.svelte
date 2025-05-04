@@ -1,10 +1,29 @@
 <script lang="ts">
-	import Header from '$lib/Header.svelte';
+	import SvelteSeo from "svelte-seo";
+
+  import Header from '$lib/Header.svelte';
 	import Image from '$lib/Image.svelte';
 	import Paragraph from '$lib/Paragraph.svelte';
 	import Section from '$lib/Section.svelte';
 	import SupportUsSection from '$lib/SupportUsSection.svelte';
+	import { BASE_URL, Routes } from '$lib/constants';
+
+  const TITLE = "Self-Improvement Meetup - Thriving Individuals Foundation";
+  const DESCRIPTION = "Learn about the Self-Improvement Meetup, an open learning & networking event for personal growth and community engagement.";
+  const URL = `${BASE_URL}${Routes.PROJECTS_SELF_IMPROVEMENT_MEETUP}`;
 </script>
+
+<SvelteSeo
+  title={TITLE}
+  description={DESCRIPTION}
+  canonical={URL}
+  openGraph={{
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
+    type: "website",
+  }}
+/>
 
 <Section isVisible>
 	<Header type="h1">Self-Improvement Meetup</Header>

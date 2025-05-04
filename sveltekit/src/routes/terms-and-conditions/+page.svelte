@@ -1,7 +1,25 @@
 <script lang="ts">
 	import Announcement from '../../lib/Announcement.svelte';
 	import Paragraph from '../../lib/Paragraph.svelte';
+	import SvelteSeo from "svelte-seo";
+	import { BASE_URL, Routes } from '$lib/constants';
+
+  const TITLE = "Terms & Conditions - Thriving Individuals Foundation";
+  const DESCRIPTION = "Read the terms and conditions of the Thriving Individuals Foundation.";
+  const URL = `${BASE_URL}${Routes.TERMS_AND_CONDITIONS}`;
 </script>
+
+<SvelteSeo
+  title={TITLE}
+  description={DESCRIPTION}
+  canonical={URL}
+  openGraph={{
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
+    type: "website",
+  }}
+/>
 
 <Announcement title="Terms & Conditions">
 	<Paragraph

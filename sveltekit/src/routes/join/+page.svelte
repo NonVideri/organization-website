@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { SubmitFunction } from '@sveltejs/kit';
-
+	import SvelteSeo from "svelte-seo";
 	import { enhance } from '$app/forms';
 	import Header from '$lib/Header.svelte';
 	import Paragraph from '$lib/Paragraph.svelte';
 	import Section from '$lib/Section.svelte';
 	import Input from '$lib/Input.svelte';
 	import { setAlert } from '$lib/alert.store';
-	import { Routes } from '$lib/constants';
+	import { BASE_URL, Routes } from '$lib/constants';
 	import { cn } from '$lib/utils';
 	import { FORM_CLASSES } from '$lib/classes';
 	import SubmitButton from '$lib/SubmitButton.svelte';
@@ -36,7 +36,23 @@
 			}
 		};
 	};
+
+  const TITLE = "Join Us - Thriving Individuals Foundation";
+  const DESCRIPTION = "Get involved with the Thriving Individuals Foundation. Learn how you can contribute to our mission and join our community.";
+  const URL = `${BASE_URL}${Routes.JOIN}`;
 </script>
+
+<SvelteSeo
+  title={TITLE}
+  description={DESCRIPTION}
+  canonical={URL}
+  openGraph={{
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
+    type: "website",
+  }}
+/>
 
 <Section isVisible>
 	<Header>Join our elite mailing list</Header>

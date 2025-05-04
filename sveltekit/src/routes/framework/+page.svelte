@@ -1,11 +1,29 @@
 <script>
+	import SvelteSeo from "svelte-seo";
+
 	import Header from '$lib/Header.svelte';
 	import List from '$lib/List.svelte';
 	import Paragraph from '$lib/Paragraph.svelte';
 	import Section from '$lib/Section.svelte';
 	import Link from '$lib/Link.svelte';
-	import { Routes } from '$lib/constants';
+	import { BASE_URL, Routes } from '$lib/constants';
+
+  const TITLE = "Our Framework - Thriving Individuals Foundation";
+  const DESCRIPTION = "Explore the framework that guides the Thriving Individuals Foundation's approach to empowerment, freedom, and community building.";
+  const URL = `${BASE_URL}${Routes.FRAMEWORK}`;
 </script>
+
+<SvelteSeo
+  title={TITLE}
+  description={DESCRIPTION}
+  canonical={URL}
+  openGraph={{
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
+    type: "website",
+  }}
+/>
 
 <Section isVisible>
 	<Header>Practical Freedom Framework</Header>

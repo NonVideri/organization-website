@@ -4,7 +4,8 @@ const BASE_URL = 'https://thrivingindividuals.org';
 const EXCLUDED_ROUTES = [
   '/confirm-subscription',
   '/pb/_',
-  '/framework'
+  '/framework',
+  '/partnerships',
 ];
 
 // List your static page routes here
