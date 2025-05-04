@@ -51,10 +51,10 @@
   }}
 />
 
-<Section>
+<Section isVisible>
 	<Header type="h1">Our Team</Header>
 
-	<div class="flex flex-col md:flex-row py-4 space-y-4 md:space-y-0 md:space-x-4 lg:space-x-6 xl:space-x-8">
+	<div class="flex flex-col lg:flex-row py-4 space-y-8 lg:space-y-0 lg:space-x-8 xl:space-x-10">
 		{#each teamMembers as member}
 			<TeamMember {...member} />
 		{/each}
