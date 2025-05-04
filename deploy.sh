@@ -2,6 +2,8 @@
 
 set -e  # Exit on any error
 
+docker system prune -a -f
+
 mkdir -p /opt/app/certbot/conf
 mkdir -p /opt/app/certbot/www
 mkdir -p /opt/app/pb_data

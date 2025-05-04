@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SvelteSeo from 'svelte-seo';
 
-  const TITLE = 'Thriving Individuals Foundation Statute';
+  const TITLE = 'Statute — Thriving Individuals Foundation';
 </script>
 
 <SvelteSeo title={TITLE} openGraph={{ title: TITLE }} />
