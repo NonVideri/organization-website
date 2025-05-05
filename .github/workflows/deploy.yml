@@ -37,6 +37,7 @@ jobs:
             --exclude 'pb_data' \
             --exclude 'node_modules' \
             --exclude '.git' \
+            --exclude 'certbot/conf' \
             ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/app/
 
       - name: Deploy on VPS

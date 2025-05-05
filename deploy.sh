@@ -71,21 +71,21 @@ if ! curl -s -o /dev/null -w "%{http_code}" http://localhost/.well-known/acme-ch
     exit 1
 fi
 
-echo "Checking for existing certificates..."
-if [ -f "certbot/conf/live/thrivingindividuals.org/fullchain.pem" ] && \
-   [ -f "certbot/conf/live/thrivingindividuals.org/privkey.pem" ]; then
-    echo "Using existing certificates..."
-else
-    echo "Obtaining SSL certificate..."
-    if ! docker-compose run --rm certbot; then
-        echo "Failed to obtain SSL certificates. Checking if we can use existing ones..."
-        if [ ! -f "certbot/conf/live/thrivingindividuals.org/fullchain.pem" ] || \
-           [ ! -f "certbot/conf/live/thrivingindividuals.org/privkey.pem" ]; then
-            echo "No existing certificates found. Deployment cannot continue."
-            exit 1
-        fi
-        echo "Found existing certificates, continuing with deployment..."
+if [ -f "certbot/conf/live/thrivingindividuals.org/fullchain.pem" ]; then
+    expiry=$(openssl x509 -enddate -noout -in certbot/conf/live/thrivingindividuals.org/fullchain.pem | cut -d= -f2)
+    expiry_date=$(date -d "$expiry" +%s)
+    current_date=$(date +%s)
+    days_left=$(( (expiry_date - current_date) / 86400 ))
+    
+    if [ $days_left -gt 30 ]; then
+        echo "Certificate still valid for $days_left days. Skipping renewal."
+    else
+        echo "Certificate expires in $days_left days. Attempting renewal..."
+        docker-compose run --rm certbot renew
     fi
+else
+    echo "No certificate found. Requesting new certificate..."
+    docker-compose run --rm certbot
 fi
 
 echo "Configuring HTTPS..."
