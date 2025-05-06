@@ -81,11 +81,11 @@ if [ -f "certbot/conf/live/thrivingindividuals.org/fullchain.pem" ]; then
         echo "Certificate still valid for $days_left days. Skipping renewal."
     else
         echo "Certificate expires in $days_left days. Attempting renewal..."
-        docker-compose run --rm certbot renew
+        docker-compose run --rm certbot renew || exit 1
     fi
 else
     echo "No certificate found. Requesting new certificate..."
-    docker-compose run --rm certbot
+    docker-compose run --rm certbot || exit 1
 fi
 
 echo "Configuring HTTPS..."
