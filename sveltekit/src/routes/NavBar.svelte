@@ -4,6 +4,10 @@
 	import NavBarDropdown from './NavBarDropdown.svelte';
 	import NavBarDropdownLink from './NavBarDropdownLink.svelte';
 	import { PROJECTS, Routes } from '$lib/constants';
+	import { NAVBAR_LINK_CLASSES, PARAGRAPH_SIZE_CLASSES } from '$lib/classes';
+	import { cn } from '$lib/utils';
+	import { faDownload } from '@fortawesome/free-solid-svg-icons';
+	import Fa from 'svelte-fa';
 
 	let lastScroll = 0;
 	let showMenu = $state(true);
@@ -30,7 +34,11 @@
 		<NavBarDropdown>
 			<!-- <NavBarDropdownLink href={Routes.FRAMEWORK} text="Practical Freedom Framework" /> -->
 			<NavBarDropdownLink href={Routes.TEAM} text="Our team" />
-			<NavBarDropdownLink href={Routes.STATUTE} text="Statute" />
+			<li>
+				<a href={Routes.STATUTE} class={cn(NAVBAR_LINK_CLASSES, PARAGRAPH_SIZE_CLASSES['small'])}>Statute <Fa
+          class={cn('inline ml-1 md:hidden')}
+          icon={faDownload} /></a>
+			</li>
 			<NavBarDropdownLink href={Routes.CONTACT} text="Contact us" />
 		</NavBarDropdown>
 	</NavBarLink>
