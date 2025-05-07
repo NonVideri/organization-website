@@ -22,7 +22,7 @@
 	}: Props = $props();
 </script>
 
-<div class="flex flex-col items-center w-full md:w-[33vw] xl:w-[25vw] my-4">
+<div class="flex flex-col items-center w-full md:w-[33vw] my-4">
 	<img src={photo} alt={name} class="rounded-full w-32 h-32 mx-auto mb-4" />
 	<Header type="h3" class="mb-0">{name}</Header>
 	{#if originalName}
