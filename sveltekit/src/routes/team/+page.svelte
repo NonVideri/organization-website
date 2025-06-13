@@ -21,8 +21,8 @@
 			name: "Krzysztof Moszyński",
 			role: "Founder, President",
 			description:
-				"Life & excellence coach, software creator. Krzysztof brings systemic thinking to people's lives and minds, helping them discern and overcome their limitations, utilizing his multidisciplinary knowledge and various tools of practical psychology.",
-			// website: 'https://moszynski.com',
+				"Holistic Life Coach. Krzysztof brings systemic thinking to his clients, empowering them to transform their lives and minds through a pragmatic, client-oriented approach.",
+			website: 'https://thetotalascent.org',
 		},
 		{
 			photo: "/team/gabriel-jedrol.jpg",
