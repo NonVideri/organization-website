@@ -21,7 +21,7 @@
 			name: "Krzysztof Moszyński",
 			role: "Founder, President",
 			description:
-				"Holistic Life Coach. Krzysztof brings systemic thinking to his clients, empowering them to transform their lives and minds through a pragmatic, client-oriented approach.",
+				"Holistic Life Coach @ The Total Ascent. Krzysztof brings systemic thinking to his clients, empowering them to transform their minds and lives through a pragmatic, client-oriented approach.",
 			website: 'https://thetotalascent.org',
 		},
 		{
