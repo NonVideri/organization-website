@@ -3,4 +3,4 @@ export interface Item {
 	description: string;
 }
 
-export type ParagraphType = 'small' | 'normal' | 'large' | 'xl' | '2xl';
+export type ParagraphType = "small" | "normal" | "large" | "xl" | "2xl";

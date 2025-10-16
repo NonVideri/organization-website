@@ -1,17 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="theme">
 	<head>
-		<meta charset="utf-8" >
-		<link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" >
-		<link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon-32x32.png" >
-		<link rel="icon" type="image/png" sizes="16x16" href="%sveltekit.assets%/favicon-16x16.png" >
-		<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" >
-		<link 			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
-			rel="stylesheet" >
-		<meta name="viewport" content="width=device-width" >
+		<meta charset="utf-8" />
+		<link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="%sveltekit.assets%/favicon-16x16.png" />
+		<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+			rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
+
+<script>
+	window.REQUIRED_CODE_ERROR_MESSAGE = "Please choose a country code";
+	window.LOCALE = "en";
+	window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE =
+		"The information provided is invalid. Please review the field format and try again.";
+
+	window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+
+	window.GENERIC_INVALID_MESSAGE =
+		"The information provided is invalid. Please review the field format and try again.";
+
+	window.translation = {
+		common: {
+			selectedList: "{quantity} list selected",
+			selectedLists: "{quantity} lists selected",
+			selectedOption: "{quantity} selected",
+			selectedOptions: "{quantity} selected",
+		},
+	};
+
+	var AUTOHIDE = Boolean(0);
+</script>
+
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>

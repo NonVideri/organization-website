@@ -1,31 +1,31 @@
 <script>
-	import { PROJECTS } from '$lib/constants';
-	import Header from '$lib/Header.svelte';
-	import Link from '$lib/Link.svelte';
-	import List from '$lib/List.svelte';
-	import ListItem from '$lib/ListItem.svelte';
-	import Paragraph from '$lib/Paragraph.svelte';
-	import Section from '$lib/Section.svelte';
-	import SupportUsSection from '$lib/SupportUsSection.svelte';
+	import { PROJECTS } from "$lib/constants";
+	import Header from "$lib/Header.svelte";
+	import Link from "$lib/Link.svelte";
+	import List from "$lib/List.svelte";
+	import ListItem from "$lib/ListItem.svelte";
+	import Paragraph from "$lib/Paragraph.svelte";
+	import Section from "$lib/Section.svelte";
+	import SupportUsSection from "$lib/SupportUsSection.svelte";
 	import SvelteSeo from "svelte-seo";
-	import { BASE_URL, Routes } from '$lib/constants';
+	import { BASE_URL, Routes } from "$lib/constants";
 
-  const TITLE = "Our projects - Thriving Individuals Foundation";
-  const DESCRIPTION = "Explore the projects of the Thriving Individuals Foundation. Learn about our initiatives and how we work to empower individuals and communities.";
-  const URL = `${BASE_URL}${Routes.PROJECTS}`;
+	const TITLE = "Our projects - Thriving Individuals Foundation";
+	const DESCRIPTION =
+		"Explore the projects of the Thriving Individuals Foundation. Learn about our initiatives and how we work to empower individuals and communities.";
+	const URL = `${BASE_URL}${Routes.PROJECTS}`;
 </script>
 
 <SvelteSeo
-  title={TITLE}
-  description={DESCRIPTION}
-  canonical={URL}
-  openGraph={{
-    title: TITLE,
-    description: DESCRIPTION,
-    url: URL,
-    type: "website",
-  }}
-/>
+	title={TITLE}
+	description={DESCRIPTION}
+	canonical={URL}
+	openGraph={{
+		title: TITLE,
+		description: DESCRIPTION,
+		url: URL,
+		type: "website",
+	}} />
 
 <Section isVisible>
 	<Header type="h1">Our projects</Header>

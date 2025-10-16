@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import NavBarLink from './NavBarLink.svelte';
-	import NavBarDropdown from './NavBarDropdown.svelte';
-	import NavBarDropdownLink from './NavBarDropdownLink.svelte';
-	import { PROJECTS, Routes } from '$lib/constants';
+	import { onMount } from "svelte";
+	import NavBarLink from "./NavBarLink.svelte";
+	import NavBarDropdown from "./NavBarDropdown.svelte";
+	import NavBarDropdownLink from "./NavBarDropdownLink.svelte";
+	import { PROJECTS, Routes } from "$lib/constants";
 
 	let lastScroll = 0;
 	let showMenu = $state(true);
 
 	onMount(() => {
-		window.addEventListener('scroll', () => {
+		window.addEventListener("scroll", () => {
 			const currentScroll = window.scrollY;
 			if (currentScroll <= 0) {
 				showMenu = true;

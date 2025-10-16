@@ -1,25 +1,25 @@
 <script lang="ts">
-	import Announcement from '../../lib/Announcement.svelte';
-	import Paragraph from '../../lib/Paragraph.svelte';
+	import Announcement from "../../lib/Announcement.svelte";
+	import Paragraph from "../../lib/Paragraph.svelte";
 	import SvelteSeo from "svelte-seo";
-	import { BASE_URL, Routes } from '$lib/constants';
+	import { BASE_URL, Routes } from "$lib/constants";
+	import Link from "$lib/Link.svelte";
 
-  const TITLE = "Terms & Conditions - Thriving Individuals Foundation";
-  const DESCRIPTION = "Read the terms and conditions of the Thriving Individuals Foundation.";
-  const URL = `${BASE_URL}${Routes.TERMS_AND_CONDITIONS}`;
+	const TITLE = "Terms & Conditions - Thriving Individuals Foundation";
+	const DESCRIPTION = "Read the terms and conditions of the Thriving Individuals Foundation.";
+	const URL = `${BASE_URL}${Routes.TERMS_AND_CONDITIONS}`;
 </script>
 
 <SvelteSeo
-  title={TITLE}
-  description={DESCRIPTION}
-  canonical={URL}
-  openGraph={{
-    title: TITLE,
-    description: DESCRIPTION,
-    url: URL,
-    type: "website",
-  }}
-/>
+	title={TITLE}
+	description={DESCRIPTION}
+	canonical={URL}
+	openGraph={{
+		title: TITLE,
+		description: DESCRIPTION,
+		url: URL,
+		type: "website",
+	}} />
 
 <Announcement title="Terms & Conditions">
 	<Paragraph
@@ -31,4 +31,9 @@
 	<Paragraph
 		>I consent to the processing of my personal data by the Thriving Individuals Foundation (data
 		controller) for marketing purposes and to send commercial information by electronic means.</Paragraph>
+	<Paragraph
+		>We use Brevo as our marketing platform. By submitting this form you agree that the personal
+		data you provide will be transferred to Brevo for processing in accordance with <Link
+			href="https://www.brevo.com/legal/privacypolicy/">Brevo's privacy policy</Link
+		>.</Paragraph>
 </Announcement>

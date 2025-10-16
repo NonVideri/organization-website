@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Header from '../../lib/Header.svelte';
-	import Link from '../../lib/Link.svelte';
-	import Paragraph from '../../lib/Paragraph.svelte';
+	import Header from "../../lib/Header.svelte";
+	import Link from "../../lib/Link.svelte";
+	import Paragraph from "../../lib/Paragraph.svelte";
 
 	interface Props {
 		photo: string;
@@ -12,14 +12,7 @@
 		website?: string | null;
 	}
 
-	let {
-		photo,
-		name,
-		originalName = null,
-		role,
-		description,
-		website = null
-	}: Props = $props();
+	let { photo, name, originalName = null, role, description, website = null }: Props = $props();
 </script>
 
 <div class="flex flex-col items-center w-full lg:w-[33vw] my-4">

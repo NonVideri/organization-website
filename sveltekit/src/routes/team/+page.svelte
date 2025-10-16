@@ -1,10 +1,10 @@
 <script lang="ts">
 	import SvelteSeo from "svelte-seo";
 
-  import Header from "../../lib/Header.svelte";
+	import Header from "../../lib/Header.svelte";
 	import Section from "../../lib/Section.svelte";
 	import TeamMember from "./TeamMember.svelte";
-	import { BASE_URL, Routes } from '$lib/constants';
+	import { BASE_URL, Routes } from "$lib/constants";
 
 	interface TeamMember {
 		photo: string;
@@ -22,7 +22,7 @@
 			role: "Founder, President",
 			description:
 				"Holistic Life Coach @ The Total Ascent. Krzysztof brings systemic thinking to his clients, empowering them to transform their minds and lives through a pragmatic, client-oriented approach.",
-			website: 'https://thetotalascent.org',
+			website: "https://thetotalascent.org",
 		},
 		{
 			photo: "/team/gabriel-jedrol.jpg",
@@ -35,21 +35,21 @@
 	];
 
 	const TITLE = "Our Team - Thriving Individuals Foundation";
-  const DESCRIPTION = "Meet the dedicated team behind the Thriving Individuals Foundation, working towards empowering individuals and communities.";
-  const URL = `${BASE_URL}${Routes.TEAM}`;
+	const DESCRIPTION =
+		"Meet the dedicated team behind the Thriving Individuals Foundation, working towards empowering individuals and communities.";
+	const URL = `${BASE_URL}${Routes.TEAM}`;
 </script>
 
 <SvelteSeo
-  title={TITLE}
-  description={DESCRIPTION}
-  canonical={URL}
-  openGraph={{
-    title: TITLE,
-    description: DESCRIPTION,
-    url: URL,
-    type: "website",
-  }}
-/>
+	title={TITLE}
+	description={DESCRIPTION}
+	canonical={URL}
+	openGraph={{
+		title: TITLE,
+		description: DESCRIPTION,
+		url: URL,
+		type: "website",
+	}} />
 
 <Section isVisible>
 	<Header type="h1">Our Team</Header>

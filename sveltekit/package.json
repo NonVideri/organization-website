@@ -9,24 +9,21 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,html,svelte}'",
-		"prepare": "husky"
+		"format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,html,svelte}'"
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "^3.1.2",
 		"@skeletonlabs/skeleton-svelte": "^1.2.1",
-		"@sveltejs/adapter-node": "^5.2.11",
+		"@sveltejs/adapter-static": "^3.0.2",
 		"@sveltejs/kit": "^2.5.27",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@types/node": "^20.12.7",
-		"@types/nodemailer": "^6.4.16",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"clsx": "^2.1.1",
 		"eslint": "^8.45.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.45.1",
-		"husky": "^9.0.11",
 		"postcss-load-config": "^5.0.3",
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.2.6",
@@ -45,8 +42,6 @@
 	"dependencies": {
 		"@fortawesome/free-regular-svg-icons": "^6.6.0",
 		"@fortawesome/free-solid-svg-icons": "^6.6.0",
-		"@tailwindcss/vite": "^4.1.4",
-		"nodemailer": "^6.9.15",
-		"pocketbase": "^0.21.1"
+		"@tailwindcss/vite": "^4.1.4"
 	}
 }
